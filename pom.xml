@@ -8,7 +8,7 @@
   <version>thebet</version>
   <packaging>war</packaging>
 
-  <name>jatoma102</name>
+  <name>bitethebet</name>
 
 	<dependencies>
 
