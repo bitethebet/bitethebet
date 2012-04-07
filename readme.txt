@@ -1,3 +1,0 @@
-hej tom
-kolejna nowa rzecz...
-następna funkcjonalność

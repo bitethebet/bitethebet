@@ -1,1 +1,4 @@
-*.html
+/target/
+/.settings/
+.classpath
+.project
