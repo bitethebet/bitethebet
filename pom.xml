@@ -20,6 +20,7 @@
 		<datanucleus.version>1.1.5</datanucleus.version>
 		<rebel.home>${env.REBEL_HOME}</rebel.home>
 		<slf4j.version>1.6.4</slf4j.version>
+		<springframework.version>3.1.0.RELEASE</springframework.version>
 	</properties>
 	<dependencies>
 
@@ -30,7 +31,7 @@
 			<version>${gae.runtime}</version>
 			<type>pom</type>
 		</dependency>
-		
+
 		<!--END Google App Engine -->
 
 		<!-- GAE-TESTING libraries for local testing as described here: http://code.google.com/appengine/docs/java/howto/unittesting.html -->
@@ -53,7 +54,7 @@
 			<scope>test</scope>
 		</dependency>
 		<!--END GAE-TESTING -->
-		
+
 		<!-- DATABASE API -->
 		<dependency>
 			<groupId>org.datanucleus</groupId>
@@ -79,55 +80,93 @@
 		</dependency>
 		<!--END DATABASE API -->
 
-		<!-- WEB TOOLS -->
+		<!-- SPRING -->
 		<dependency>
-		<!-- J2EE Servlet API. We need it to compile IndexServlet class. You can 
-			probably remove it, if you don't explicitly use Servlets -->
-			<groupId>org.apache.geronimo.specs</groupId>
-			<artifactId>geronimo-servlet_2.5_spec</artifactId>
-			<version>1.2</version>
-			<scope>provided</scope>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${springframework.version}</version>
 		</dependency>
 		<dependency>
-		<!-- Make use of JSP tags. Remove, if you don't use JSPs -->
-			<artifactId>standard</artifactId>
-			<groupId>taglibs</groupId>
-			<version>1.1.2</version>
-			<type>jar</type>
-			<scope>runtime</scope>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${springframework.version}</version>
 		</dependency>
-		<!--END WEB TOOLS -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${springframework.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${springframework.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjrt</artifactId>
+			<version>1.6.12</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aspects</artifactId>
+			<version>${springframework.version}</version>
+		</dependency>
 
-		<!-- Logging -->
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-api</artifactId>
-			<version>${slf4j.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>ch.qos.logback</groupId>
-			<artifactId>logback-classic</artifactId>
-			<version>0.9.24</version>
-		</dependency>
-		<!--END Logging -->
+	<!-- END SPRING -->
 
-		<!-- Testing -->
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.5</version>
-			<scope>test</scope>
-		</dependency>
-		<!--END Testing -->
+	<!-- WEB TOOLS -->
+	<dependency>
+		<groupId>javax.servlet</groupId>
+		<artifactId>servlet-api</artifactId>
+		<version>2.5</version>
+		<scope>provided</scope>
+	</dependency>
+	<dependency>
+		<groupId>javax.servlet.jsp</groupId>
+		<artifactId>jsp-api</artifactId>
+		<version>2.1</version>
+		<scope>provided</scope>
+	</dependency>
+	<dependency>
+    <groupId>javax.servlet</groupId>
+    <artifactId>jstl</artifactId>
+    <version>1.2</version> 
+    <scope>provided</scope>
+</dependency>
+	
+	<!--END WEB TOOLS -->
 
-	</dependencies>
+	<!-- Logging -->
+	<dependency>
+		<groupId>org.slf4j</groupId>
+		<artifactId>slf4j-api</artifactId>
+		<version>${slf4j.version}</version>
+	</dependency>
+	<dependency>
+		<groupId>ch.qos.logback</groupId>
+		<artifactId>logback-classic</artifactId>
+		<version>0.9.24</version>
+	</dependency>
+	<!--END Logging -->
+
+	<!-- Testing -->
+	<dependency>
+		<groupId>junit</groupId>
+		<artifactId>junit</artifactId>
+		<version>4.5</version>
+		<scope>test</scope>
+	</dependency>
+	<!--END Testing -->
+
+</dependencies>
 
 	<build>
 		<finalName>${project.artifactId}-${project.version}</finalName>
 		<plugins>
-		<!-- GAE PLUGINS -->
+			<!-- GAE PLUGINS -->
 			<plugin>
-				<!-- This plug-in "enhances" your domain model objects (i.e. makes them persistent for datanucleus) -->
+				<!-- This plug-in "enhances" your domain model objects (i.e. makes them 
+					persistent for datanucleus) -->
 				<groupId>org.datanucleus</groupId>
 				<artifactId>maven-datanucleus-plugin</artifactId>
 				<version>1.1.4</version>
@@ -208,7 +247,7 @@
 					</dependency>
 				</dependencies>
 			</plugin>
-		<!--END GAE PLUGINS -->
+			<!--END GAE PLUGINS -->
 
 			<!-- MAVEN COMPILE PLUGINS -->
 			<plugin>
@@ -238,7 +277,7 @@
 				</configuration>
 			</plugin>
 			<!--END MAVEN COMPILE PLUGINS -->
-			
+
 		</plugins>
 	</build>
 
