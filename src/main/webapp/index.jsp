@@ -6,8 +6,7 @@
 </head>
 <body>
   <p>
- jetty:run i mamy hot deploy 
- gae:run czy dziala z debug jrebel i teraz test !!! 
+ Hello World!
   </p>
   <p>
   <ul>
