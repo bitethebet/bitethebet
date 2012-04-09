@@ -1,144 +1,138 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  <modelVersion>4.0.0</modelVersion>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
 
-  <!-- The Basics -->
-  <groupId>pl.thebet</groupId>
-  <artifactId>thebet</artifactId>
-  <version>thebet</version>
-  <packaging>war</packaging>
-  <name>bitethebet</name>
-  
+	<!-- The Basics -->
+	<groupId>pl.thebet</groupId>
+	<artifactId>thebet</artifactId>
+	<version>thebet</version>
+	<packaging>war</packaging>
+	<name>bitethebet</name>
+
 	<properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<downloadSources>true</downloadSources>
 		<gae.version>1.6.3</gae.version>
 		<gae.runtime>1.6.3</gae.runtime>
-        <maven.gae.plugin.version>0.9.2</maven.gae.plugin.version>
+		<maven.gae.plugin.version>0.9.2</maven.gae.plugin.version>
 		<gae.application.version>test</gae.application.version>
-        <datanucleus.version>1.1.5</datanucleus.version>
-        <rebel.home>${env.REBEL_HOME}</rebel.home>
-        <slf4j.version>1.6.4</slf4j.version>
+		<datanucleus.version>1.1.5</datanucleus.version>
+		<rebel.home>${env.REBEL_HOME}</rebel.home>
+		<slf4j.version>1.6.4</slf4j.version>
 	</properties>
 	<dependencies>
 
-    <!-- Google App Engine meta-package -->
-    <dependency>
-      <groupId>net.kindleit</groupId>
-      <artifactId>gae-runtime</artifactId>
-      <version>${gae.runtime}</version>
-      <type>pom</type>
-    </dependency>
-    
+		<!-- Google App Engine -->
 		<dependency>
-			<groupId>org.datanucleus</groupId>
-            <artifactId>datanucleus-core</artifactId>
-            <version>${datanucleus.version}</version>
-            <scope>runtime</scope>
-        </dependency>
-
-		<dependency>
-			<groupId>javax.transaction</groupId>
-			<artifactId>jta</artifactId>
-			<version>1.1</version>
+			<groupId>net.kindleit</groupId>
+			<artifactId>gae-runtime</artifactId>
+			<version>${gae.runtime}</version>
+			<type>pom</type>
 		</dependency>
+		
+		<!--END Google App Engine -->
 
-		<!--
-			J2EE Servlet API. We need it to compile IndexServlet class. You can
-			probably remove it, if you don't explicitly use Servlets
-		-->
-		<dependency>
-			<groupId>org.apache.geronimo.specs</groupId>
-			<artifactId>geronimo-servlet_2.5_spec</artifactId>
-			<version>1.2</version>
-			<scope>provided</scope>
-		</dependency>
-
-		<!--
-			Make use of JSP tags. Remove, if you don't use JSPs
-		-->
-		<dependency>
-			<artifactId>standard</artifactId>
-			<groupId>taglibs</groupId>
-			<version>1.1.2</version>
-			<type>jar</type>
-			<scope>runtime</scope>
-		</dependency>
-
-		<!-- These dependencies are here just for enabling logging -->
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-api</artifactId>
-			<version>${slf4j.version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>ch.qos.logback</groupId>
-			<artifactId>logback-classic</artifactId>
-			<version>0.9.24</version>
-		</dependency>
-
-		<!-- Test scope -->
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.5</version>
-			<scope>test</scope>
-		</dependency>
-
-		<!--
-			GAE libraries for local testing as described here:
-			http://code.google.com/appengine/docs/java/howto/unittesting.html
-		-->
+		<!-- GAE-TESTING libraries for local testing as described here: http://code.google.com/appengine/docs/java/howto/unittesting.html -->
 		<dependency>
 			<groupId>com.google.appengine</groupId>
 			<artifactId>appengine-api-labs</artifactId>
 			<version>${gae.version}</version>
 			<scope>test</scope>
 		</dependency>
-
 		<dependency>
 			<groupId>com.google.appengine</groupId>
 			<artifactId>appengine-api-stubs</artifactId>
 			<version>${gae.version}</version>
 			<scope>test</scope>
 		</dependency>
-
 		<dependency>
 			<groupId>com.google.appengine</groupId>
 			<artifactId>appengine-testing</artifactId>
 			<version>${gae.version}</version>
 			<scope>test</scope>
 		</dependency>
+		<!--END GAE-TESTING -->
+		
+		<!-- DATABASE API -->
+		<dependency>
+			<groupId>org.datanucleus</groupId>
+			<artifactId>datanucleus-core</artifactId>
+			<version>${datanucleus.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.transaction</groupId>
+			<artifactId>jta</artifactId>
+			<version>1.1</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.jdo</groupId>
+			<artifactId>jdo2-api</artifactId>
+			<version>2.3-eb</version>
+			<exclusions>
+				<exclusion>
+					<groupId>javax.transaction</groupId>
+					<artifactId>transaction-api</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<!--END DATABASE API -->
 
-        <dependency>
-            <groupId>javax.jdo</groupId>
-            <artifactId>jdo2-api</artifactId>
-            <version>2.3-eb</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>javax.transaction</groupId>
-                    <artifactId>transaction-api</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
+		<!-- WEB TOOLS -->
+		<dependency>
+		<!-- J2EE Servlet API. We need it to compile IndexServlet class. You can 
+			probably remove it, if you don't explicitly use Servlets -->
+			<groupId>org.apache.geronimo.specs</groupId>
+			<artifactId>geronimo-servlet_2.5_spec</artifactId>
+			<version>1.2</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+		<!-- Make use of JSP tags. Remove, if you don't use JSPs -->
+			<artifactId>standard</artifactId>
+			<groupId>taglibs</groupId>
+			<version>1.1.2</version>
+			<type>jar</type>
+			<scope>runtime</scope>
+		</dependency>
+		<!--END WEB TOOLS -->
+
+		<!-- Logging -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>0.9.24</version>
+		</dependency>
+		<!--END Logging -->
+
+		<!-- Testing -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.5</version>
+			<scope>test</scope>
+		</dependency>
+		<!--END Testing -->
+
 	</dependencies>
 
 	<build>
-	<finalName>${project.artifactId}-${project.version}</finalName>
+		<finalName>${project.artifactId}-${project.version}</finalName>
 		<plugins>
-			<!--
-				This plug-in "enhances" your domain model objects (i.e. makes them
-				persistent for datanucleus)
-			-->
+		<!-- GAE PLUGINS -->
 			<plugin>
+				<!-- This plug-in "enhances" your domain model objects (i.e. makes them persistent for datanucleus) -->
 				<groupId>org.datanucleus</groupId>
 				<artifactId>maven-datanucleus-plugin</artifactId>
 				<version>1.1.4</version>
 				<configuration>
-					<!--
-						Make sure this path contains your persistent classes!
-					-->
+					<!-- Make sure this path contains your persistent classes! -->
 					<mappingIncludes>**/model/*.class</mappingIncludes>
 					<verbose>true</verbose>
 					<enhancerName>ASM</enhancerName>
@@ -182,73 +176,41 @@
 					</dependency>
 				</dependencies>
 			</plugin>
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-war-plugin</artifactId>
-                <version>2.1.1</version>
-                <configuration>
-                    <webResources>
-                        <resource>
-                            <targetPath>WEB-INF</targetPath>
-                            <directory>src/main/webapp/WEB-INF</directory>
-                            <filtering>true</filtering>
-                            <includes>
-                                <include>*.xml</include>
-                            </includes>
-                        </resource>
-                    </webResources>
-                </configuration>
-            </plugin>
-
-			<!--
-				The actual maven-gae-plugin. Type "mvn gae:run" to run project, "mvn
-				gae:deploy" to upload to GAE.
-			-->
-
-            <plugin>
-                <groupId>net.kindleit</groupId>
-                <artifactId>maven-gae-plugin</artifactId>
-                <version>${maven.gae.plugin.version}</version>
-                <configuration>
-                    <jvmFlags>
-                        <jvmFlag>-Xdebug</jvmFlag>
-                        <jvmFlag>-Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=8000</jvmFlag>
-                        <jvmFlag>-Dmail.log_mail_level=WARNING</jvmFlag>
-                        <jvmFlag>-Dmail.log_mail_body=true</jvmFlag>
-                    </jvmFlags>
-                    <severity>0</severity>
-                    <serverId>${google.app.id}</serverId>
-                </configuration>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>unpack</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <dependencies>
-                    <dependency>
-                        <groupId>net.kindleit</groupId>
-                        <artifactId>gae-runtime</artifactId>
-                        <version>${gae.runtime}</version>
-                        <type>pom</type>
-                    </dependency>
-                </dependencies> 
-            </plugin>
-
-
-			<!--
-				Upload application to the appspot automatically, during
-				release:perform
-			-->
 			<plugin>
-				<artifactId>maven-release-plugin</artifactId>
+				<!-- The actual maven-gae-plugin. Type "mvn gae:run" to run project, 
+					"mvn gae:deploy" to upload to GAE. -->
+				<groupId>net.kindleit</groupId>
+				<artifactId>maven-gae-plugin</artifactId>
+				<version>${maven.gae.plugin.version}</version>
 				<configuration>
-					<goals>gae:deploy</goals>
+					<jvmFlags>
+						<jvmFlag>-Xdebug</jvmFlag>
+						<jvmFlag>-Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=8000</jvmFlag>
+						<jvmFlag>-Dmail.log_mail_level=WARNING</jvmFlag>
+						<jvmFlag>-Dmail.log_mail_body=true</jvmFlag>
+					</jvmFlags>
+					<severity>0</severity>
+					<serverId>${google.app.id}</serverId>
 				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>unpack</goal>
+						</goals>
+					</execution>
+				</executions>
+				<dependencies>
+					<dependency>
+						<groupId>net.kindleit</groupId>
+						<artifactId>gae-runtime</artifactId>
+						<version>${gae.runtime}</version>
+						<type>pom</type>
+					</dependency>
+				</dependencies>
 			</plugin>
+		<!--END GAE PLUGINS -->
 
+			<!-- MAVEN COMPILE PLUGINS -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -258,104 +220,85 @@
 					<target>1.6</target>
 				</configuration>
 			</plugin>
-
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.1.1</version>
+				<configuration>
+					<webResources>
+						<resource>
+							<targetPath>WEB-INF</targetPath>
+							<directory>src/main/webapp/WEB-INF</directory>
+							<filtering>true</filtering>
+							<includes>
+								<include>*.xml</include>
+							</includes>
+						</resource>
+					</webResources>
+				</configuration>
+			</plugin>
+			<!--END MAVEN COMPILE PLUGINS -->
+			
 		</plugins>
 	</build>
 
 
 
 	<profiles>
-		<!--
-			We can configure our integration server to activate this profile and
-			perform gae:deploy, thus uploading latest snapshot to the
-			http://1.latest.<applicationName>.appspot.com automatically
-		-->
 		<profile>
-			<id>integration-build</id>
-			<properties>
-				<gae.application.version>stage</gae.application.version>
-			</properties>
+			<id>jrebel</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>net.kindleit</groupId>
+						<artifactId>maven-gae-plugin</artifactId>
+						<version>${maven.gae.plugin.version}</version>
+						<configuration>
+							<jvmFlags>
+								<jvmFlag>-Xdebug</jvmFlag>
+								<jvmFlag>-Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=8000</jvmFlag>
+								<jvmFlag>-Dmail.log_mail_level=WARNING</jvmFlag>
+								<jvmFlag>-Dmail.log_mail_body=true</jvmFlag>
+								<jvmFlag>-javaagent:${rebel.home}\jrebel.jar</jvmFlag>
+								<jvmFlag>-noverify</jvmFlag>
+							</jvmFlags>
+							<severity>0</severity>
+							<serverId>${google.app.id}</serverId>
+						</configuration>
+						<executions>
+							<execution>
+								<goals>
+									<goal>unpack</goal>
+								</goals>
+							</execution>
+						</executions>
+						<dependencies>
+							<dependency>
+								<groupId>net.kindleit</groupId>
+								<artifactId>gae-runtime</artifactId>
+								<version>${gae.runtime}</version>
+								<type>pom</type>
+							</dependency>
+						</dependencies>
+					</plugin>
+					<plugin>
+						<groupId>org.zeroturnaround</groupId>
+						<artifactId>jrebel-maven-plugin</artifactId>
+						<version>1.1.0</version>
+						<executions>
+							<execution>
+								<id>generate-rebel-xml</id>
+								<phase>process-resources</phase>
+								<goals>
+									<goal>generate</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
 		</profile>
 
-		<!--
-			This profile will activate automatically during release and upload
-			application to the http://2.latest.<applicationName>.appspot.com (We
-			might want to set the 2nd version as our applications Default version
-			to be accessible at http://<applicationName>.appspot.com)
-		-->
-		<profile>
-			<id>release-build</id>
-			<activation>
-				<property>
-					<name>performRelease</name>
-					<value>true</value>
-				</property>
-			</activation>
-
-			<properties>
-				<!--
-					During release, set application version in appengine-web.xml to 2
-				-->
-				<gae.application.version>release</gae.application.version>
-			</properties>
-		</profile>
-		  <profile>
-            <id>jrebel</id>
-            <properties>
-                <env>local</env>
-            </properties>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>net.kindleit</groupId>
-                        <artifactId>maven-gae-plugin</artifactId>
-                        <version>${maven.gae.plugin.version}</version>
-                        <configuration>
-                            <jvmFlags>
-                                <jvmFlag>-Xdebug</jvmFlag>
-                                <jvmFlag>-Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=8000</jvmFlag>
-                                <jvmFlag>-Dmail.log_mail_level=WARNING</jvmFlag>
-                                <jvmFlag>-Dmail.log_mail_body=true</jvmFlag>
-                                <jvmFlag>-javaagent:${rebel.home}\jrebel.jar</jvmFlag>
-                                <jvmFlag>-noverify</jvmFlag>
-                            </jvmFlags>
-                            <severity>0</severity>
-                            <serverId>${google.app.id}</serverId>
-                        </configuration>
-                        <executions>
-                            <execution>
-                                <goals>
-                                    <goal>unpack</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                        <dependencies>
-                            <dependency>
-                                <groupId>net.kindleit</groupId>
-                                <artifactId>gae-runtime</artifactId>
-                                <version>${gae.runtime}</version>
-                                <type>pom</type>
-                            </dependency>
-                        </dependencies> 
-                    </plugin>
-                    <plugin>
-                        <groupId>org.zeroturnaround</groupId>
-                        <artifactId>jrebel-maven-plugin</artifactId>
-                        <version>1.1.0</version>
-                        <executions>
-                            <execution>
-                                <id>generate-rebel-xml</id>
-                                <phase>process-resources</phase>
-                                <goals>
-                                    <goal>generate</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-       
 	</profiles>
 
 </project>
