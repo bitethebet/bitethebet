@@ -5,6 +5,6 @@
     <title>Welcome</title>
 </head>
 <body>
-Witaj  <div><c:out value="${msg}"/></div>
+  <div><c:out value="${msg}"/></div>
 </body>
 </html>

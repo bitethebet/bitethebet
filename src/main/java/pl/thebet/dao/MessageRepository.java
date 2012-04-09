@@ -1,5 +1,5 @@
 
-package pl.thebet.server;
+package pl.thebet.dao;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -10,7 +10,7 @@ import javax.jdo.JDOHelper;
 import javax.jdo.PersistenceManager;
 import javax.jdo.PersistenceManagerFactory;
 
-import pl.thebet.model.Message;
+import pl.bitethebet.model.Message;
 
 public class MessageRepository {
 

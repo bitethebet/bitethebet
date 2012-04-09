@@ -12,4 +12,4 @@ mvn gae:run -P jrebel
 
 DEPENDENCIES:
 LOGBACK (http://logback.qos.ch/documentation.html)
-SPRING
+SPRING MVC

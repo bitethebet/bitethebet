@@ -1,5 +1,5 @@
 
-package pl.thebet.model;
+package pl.bitethebet.model;
 
 import java.io.Serializable;
 
