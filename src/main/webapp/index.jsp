@@ -6,23 +6,23 @@
 </head>
 <body>
   <p>
- Hello World !
-  </p>
-  <p>
-  <ul>
-    <c:forEach var="message" items="${messages}">
-      <li>
-        <div><c:out value="${message.text}"/></div>
-        <div><a href="index?id=<c:out value="${message.id}"/>">Delete</a></div>
-      </li>
-    </c:forEach>
-  </ul>
-  </p>
-  <p>
-    <form action="index" method="post">
-        <input type="text" name="text" />
-        <input type="submit" value="Create" />
-    </form>
-  </p>
+
+<!--   </p> -->
+<!--   <p> -->
+<!--   <ul> -->
+<%--     <c:forEach var="message" items="${messages}"> --%>
+<!--       <li> -->
+<%--         <div><c:out value="${message.text}"/></div> --%>
+<%--         <div><a href="index?id=<c:out value="${message.id}"/>">Delete</a></div> --%>
+<!--       </li> -->
+<%--     </c:forEach> --%>
+<!--   </ul> -->
+<!--   </p> -->
+<!--   <p> -->
+<!--     <form action="index" method="post"> -->
+<!--         <input type="text" name="text" /> -->
+<!--         <input type="submit" value="Create" /> -->
+<!--     </form> -->
+<!--   </p> -->
 </body>
 </html>
