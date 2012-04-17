@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>Welcome</title>
-<link href="css/bootstrap.css" rel="stylesheet"></link>
+<link href="bootstrap/css/bootstrap.css" rel="stylesheet"></link>
+<link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet"></link>
 <style type="text/css">
 body {
 	padding-top: 60px;
@@ -11,12 +12,11 @@ body {
 }
 </style>
 
-<link href="../assets/css/bootstrap-responsive.css" rel="stylesheet">
-</link>
+
 </head>
 <body>
 	<div class="hero-unit">
-		<h1>Bite the bet!</h1>
+		<h1>Bite the bet!!!</h1>
 		<p>
 			<c:out value="${msg}" />
 			</a>
