@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -15,8 +16,9 @@ body {
 
 </head>
 <body>
+    <tiles:insertAttribute name="test" />
 	<div class="hero-unit">
-		<h1>Bite the bet!!!</h1>
+		<h1>Bite the bet!</h1>
 		<p>
 			<c:out value="${msg}" />
 			</a>

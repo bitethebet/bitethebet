@@ -19,8 +19,9 @@
 		<gae.application.version>test</gae.application.version>
 		<datanucleus.version>1.1.5</datanucleus.version>
 		<rebel.home>${env.REBEL_HOME}</rebel.home>
-		<slf4j.version>1.6.4</slf4j.version>
+		<slf4j.version>1.6.0</slf4j.version>
 		<springframework.version>3.1.0.RELEASE</springframework.version>
+                <tiles.version>2.2.2</tiles.version>
 	</properties>
 	<dependencies>
 
@@ -147,6 +148,20 @@
 			<version>1.2</version>
 			<scope>provided</scope>
 		</dependency>
+                      
+      <dependency>
+            <groupId>org.apache.tiles</groupId>
+            <artifactId>tiles-jsp</artifactId>
+            <version>${tiles.version}</version>
+            <scope>compile</scope>
+        </dependency>
+    
+      <dependency>
+            <groupId>org.apache.tiles</groupId>
+            <artifactId>tiles-core</artifactId>
+            <version>${tiles.version}</version>
+            <scope>compile</scope>
+        </dependency>
 		<!--END WEB TOOLS -->
 
 		<!-- Logging -->
@@ -155,11 +170,7 @@
 			<artifactId>slf4j-api</artifactId>
 			<version>${slf4j.version}</version>
 		</dependency>
-		<dependency>
-			<groupId>ch.qos.logback</groupId>
-			<artifactId>logback-classic</artifactId>
-			<version>0.9.24</version>
-		</dependency>
+
 		<!--END Logging -->
 
 		<!-- Testing -->
