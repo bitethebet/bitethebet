@@ -3,8 +3,13 @@
        "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
        "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
 <tiles-definitions>
-  <definition name="index" template="/views/index.jsp">
-      
-    <put-attribute name="test" value="This message is from Tiles" />
+  <definition name="base.definition" template="/layouts/base.jsp">
+    <put-attribute name="header" value="/layouts/header.jsp" />
+    
+  </definition>
+  
+  <definition name="index" extends="base.definition">
+    <put-attribute name="title" value="Bite the bet" />
+    <put-attribute name="body" value="/views/index.jsp" />
   </definition>
 </tiles-definitions>

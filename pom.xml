@@ -19,7 +19,7 @@
 		<gae.application.version>test</gae.application.version>
 		<datanucleus.version>1.1.5</datanucleus.version>
 		<rebel.home>${env.REBEL_HOME}</rebel.home>
-		<slf4j.version>1.6.0</slf4j.version>
+		<slf4j.version>1.6.4</slf4j.version>
 		<springframework.version>3.1.0.RELEASE</springframework.version>
                 <tiles.version>2.2.2</tiles.version>
 	</properties>
