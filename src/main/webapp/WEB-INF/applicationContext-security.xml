@@ -10,15 +10,12 @@
     <http>
         <intercept-url pattern="/secure/user/**" access="ROLE_USER" />
         <intercept-url pattern="/secure/admin/**" access="ROLE_ADMIN" />
-        <form-login login-page="/login.html" default-target-url='/secure/user/dashboard.jsp'/>
+        <form-login login-page="/login.html"/>
         <logout logout-success-url="/index.jsp"/>
     </http>
     <authentication-manager>
         <authentication-provider>
-            <user-service>
-                <user name="bitebet" password="bitebet" authorities="ROLE_USER" />
-                <user name="admin" password="admin" authorities="ROLE_ADMIN" />
-            </user-service>
+            <jdbc-user-service data-source-ref="securityDataSource"/>
         </authentication-provider>
     </authentication-manager>
 </beans:beans>   

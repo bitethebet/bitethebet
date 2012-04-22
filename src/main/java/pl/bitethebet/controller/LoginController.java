@@ -14,7 +14,7 @@ public class LoginController {
     @RequestMapping(value = "/login")
     public ModelAndView index() {
         ModelAndView mav = new ModelAndView("login");
-        mav.addObject("msg", "This is message from Sample Spring controller");
+//TODO: log login results        
         return mav;
     }
 }

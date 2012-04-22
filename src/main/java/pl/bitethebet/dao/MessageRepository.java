@@ -1,5 +1,5 @@
 
-package pl.thebet.dao;
+package pl.bitethebet.dao;
 
 import java.util.ArrayList;
 import java.util.Collection;
