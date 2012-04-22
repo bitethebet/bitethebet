@@ -1,20 +1,24 @@
+
 <beans:beans xmlns="http://www.springframework.org/schema/security"
-	xmlns:beans="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+             xmlns:beans="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://www.springframework.org/schema/beans 
                     http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
                     http://www.springframework.org/schema/security 
                     http://www.springframework.org/schema/security/spring-security-3.1.xsd">
-
-	<http auto-config='true'>
-		<intercept-url pattern="/**" access="ROLE_USER" />
-	</http>
-	<authentication-manager>
-		<authentication-provider>
-			<user-service>
-				<user name="bitebet" password="bitebet" authorities="ROLE_USER" />
-			</user-service>
-		</authentication-provider>
-	</authentication-manager>
-
-
+  
+    <http pattern="/login.jsp*" security="none"/>
+    <http>
+        <intercept-url pattern="/secure/user/**" access="ROLE_USER" />
+        <intercept-url pattern="/secure/admin/**" access="ROLE_ADMIN" />
+        <form-login login-page="/login.html" default-target-url='/secure/user/dashboard.jsp'/>
+        <logout logout-success-url="/index.jsp"/>
+    </http>
+    <authentication-manager>
+        <authentication-provider>
+            <user-service>
+                <user name="bitebet" password="bitebet" authorities="ROLE_USER" />
+                <user name="admin" password="admin" authorities="ROLE_ADMIN" />
+            </user-service>
+        </authentication-provider>
+    </authentication-manager>
 </beans:beans>   
