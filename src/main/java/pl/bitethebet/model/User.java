@@ -1,4 +1,4 @@
-package pl.bitethebet.dao;
+package pl.bitethebet.model;
 
 public class User {
 }
