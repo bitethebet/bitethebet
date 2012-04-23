@@ -248,7 +248,7 @@
 				<configuration>
 					<jvmFlags>
 						<jvmFlag>-Xdebug</jvmFlag>
-						<jvmFlag>-Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=8000</jvmFlag>
+						<jvmFlag>-Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=8077</jvmFlag>
 						<jvmFlag>-Dmail.log_mail_level=WARNING</jvmFlag>
 						<jvmFlag>-Dmail.log_mail_body=true</jvmFlag>
 					</jvmFlags>
@@ -319,7 +319,7 @@
 						<configuration>
 							<jvmFlags>
 								<jvmFlag>-Xdebug</jvmFlag>
-								<jvmFlag>-Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=8000</jvmFlag>
+								<jvmFlag>-Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=8077</jvmFlag>
 								<jvmFlag>-Dmail.log_mail_level=WARNING</jvmFlag>
 								<jvmFlag>-Dmail.log_mail_body=true</jvmFlag>
 								<jvmFlag>-javaagent:${rebel.home}\jrebel.jar</jvmFlag>

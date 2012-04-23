@@ -15,7 +15,10 @@
     </http>
     <authentication-manager>
         <authentication-provider>
-            <jdbc-user-service data-source-ref="securityDataSource"/>
+            <user-service>
+                <user name="bitebet" password="bitebet" authorities="ROLE_USER" />
+                <user name="admin" password="admin" authorities="ROLE_ADMIN" />
+            </user-service>
         </authentication-provider>
     </authentication-manager>
 </beans:beans>   
