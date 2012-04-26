@@ -4,8 +4,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title><tiles:insertAttribute name="title" /></title>
-<link href="bootstrap/css/bootstrap.css" rel="stylesheet"></link>
-<link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet"></link>
+<link href="/bootstrap/css/bootstrap.css" rel="stylesheet"></link>
+<link href="/bootstrap/css/bootstrap-responsive.css" rel="stylesheet"></link>
 <style type="text/css">
 body {
 	padding-top: 60px;
