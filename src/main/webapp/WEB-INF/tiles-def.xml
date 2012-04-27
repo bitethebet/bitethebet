@@ -27,4 +27,10 @@
         <put-attribute name="title" value="Bite the bet" />
         <put-attribute name="body" value="/views/register.jsp" />
     </definition>
+    
+    <definition name="console" extends="base.definition">
+        <put-attribute name="title" value="Admin" />    
+       <put-attribute name="body" value="/views/secure/admin/console.jsp" />
+    </definition>
+    
 </tiles-definitions>
