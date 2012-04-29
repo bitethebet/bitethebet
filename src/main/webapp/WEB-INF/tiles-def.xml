@@ -7,7 +7,18 @@
     <definition name="base.definition" template="/layouts/base.jsp">
         <put-attribute name="header" value="/layouts/header.jsp" />
         <put-attribute name="body" value="placeholder" />
+        <put-attribute name="title" value="Bite the bet" />
     </definition>
+    <definition name="admin.definition" template="/layouts/admin.jsp">
+        <put-attribute name="header" value="/layouts/header.jsp" />
+        <put-attribute name="body" value="placeholder" />
+        <put-attribute name="title" value="Bite the bet" />
+        <put-attribute name="users" value="" />
+        <put-attribute name="bets" value="" />
+        <put-attribute name="countries" value="" />
+    </definition>
+    
+    
     <definition name="index" extends="base.definition">
         <put-attribute name="title" value="Bite the bet" />
         <put-attribute name="body" value="/views/index.jsp" />
@@ -19,26 +30,18 @@
     </definition>
     
     <definition name="dashboard" extends="base.definition">
-        <put-attribute name="title" value="User' dashboard" />
         <put-attribute name="body" value="/views/secure/user/dashboard.jsp" />
     </definition>
     
-<<<<<<< HEAD
+
     <definition name="register" extends="base.definition">
-        <put-attribute name="title" value="Bite the bet" />
-=======
-        <definition name="register" extends="base.definition">
         <put-attribute name="title" value="Register user" />
->>>>>>> 8715107717f04e5e8292800d19ec2a4ffdea3c15
         <put-attribute name="body" value="/views/register.jsp" />
     </definition>
     
-    <definition name="console" extends="base.definition">        
-        <put-attribute name="body" >
-            <definition template="/layouts/adminBody.jsp">
-                <put-attribute name="bodyAdmin" value="/views/secure/admin/countries.jsp" />
-            </definition>
-        </put-attribute>
+    <definition name="console" extends="admin.definition">
+                <put-attribute name="body" value="/views/secure/admin/countries.jsp" />
+                <put-attribute name="countries" value="active" />
     </definition>
     
 </tiles-definitions>
