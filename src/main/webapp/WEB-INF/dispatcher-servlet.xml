@@ -12,10 +12,8 @@
 
     <context:component-scan base-package="pl.bitethebet.controller" />
     <context:component-scan base-package="pl.bitethebet.repository" />
-    <context:component-scan base-package="pl.bitethebet.configuration" />
+    <mvc:annotation-driven /> 
     <!--Static views (no controllers) -->
-    <!--Attention: there is a bug. If tag mvc:view-controller is used, tiles stop working. 
-    As a workaround empty class WebConfig has been created -->
     <mvc:view-controller path="index.html" /> 
      <!--end Static views -->
 
