@@ -12,14 +12,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import pl.bitethebet.model.AuthorityRole;
-import pl.bitethebet.model.User;
-import pl.bitethebet.repository.UserRepository;
+import pl.bitethebet.model.UserAccount;
+import pl.bitethebet.repository.UserAccountRepository;
 
 @Controller
 public class AuthenticationController {
 
     @Autowired
-    private UserRepository userRepository;
+    private UserAccountRepository userRepository;
 
     @RequestMapping(value = "/login")
     public ModelAndView index() {
@@ -29,7 +29,7 @@ public class AuthenticationController {
     }
 
     @RequestMapping(value = "/registerUser", method = RequestMethod.POST)
-    public String registerUser(@ModelAttribute("user") User user, BindingResult result) {
+    public String registerUser(@ModelAttribute("user") UserAccount user, BindingResult result) {
         user.setAuthorityRole(AuthorityRole.USER);
         userRepository.create(user);
         return "redirect:login.html";
@@ -38,7 +38,7 @@ public class AuthenticationController {
     @RequestMapping(value = "/register")
     public ModelAndView register() {
         ModelAndView mav = new ModelAndView("register");
-        mav.addObject("command", new User());
+        mav.addObject("command", new UserAccount());
         return mav;
     }
 }
