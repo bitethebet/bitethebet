@@ -19,12 +19,12 @@
     </definition>
     
     <definition name="dashboard" extends="base.definition">
-        <put-attribute name="title" value="Bite the bet" />
+        <put-attribute name="title" value="User' dashboard" />
         <put-attribute name="body" value="/views/secure/user/dashboard.jsp" />
     </definition>
     
         <definition name="register" extends="base.definition">
-        <put-attribute name="title" value="Bite the bet" />
+        <put-attribute name="title" value="Register user" />
         <put-attribute name="body" value="/views/register.jsp" />
     </definition>
     

@@ -4,10 +4,14 @@
  */
 package pl.bitethebet.repository;
 
-import pl.bitethebet.repository.common.CrudRepository;
 import org.springframework.stereotype.Repository;
 import pl.bitethebet.model.User;
+import pl.bitethebet.repository.common.CrudRepository;
 
+/**
+ * 
+ * @author mrowkam
+ */
 @Repository
 public class UserRepository extends CrudRepository<User> {
     

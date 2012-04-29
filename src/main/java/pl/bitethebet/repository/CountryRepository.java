@@ -4,9 +4,9 @@
  */
 package pl.bitethebet.repository;
 
-import pl.bitethebet.repository.common.CrudRepository;
 import org.springframework.stereotype.Repository;
 import pl.bitethebet.model.Country;
+import pl.bitethebet.repository.common.CrudRepository;
 
 /**
  *
