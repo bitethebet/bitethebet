@@ -3,10 +3,21 @@
        "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
        "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
 <tiles-definitions>
+   
     <definition name="base.definition" template="/layouts/base.jsp">
         <put-attribute name="header" value="/layouts/header.jsp" />
-    
+        <put-attribute name="body" value="placeholder" />
     </definition>
+    
+     <definition name="admin.definition" extends="base.definition">
+          <put-attribute name="body" >
+            <definition template="/layouts/adminBody.jsp">
+                <put-attribute name="bodyAdmin" value="placeholder" />
+            </definition>
+        </put-attribute>
+    </definition>
+
+
   
     <definition name="index" extends="base.definition">
         <put-attribute name="title" value="Bite the bet" />
@@ -23,14 +34,14 @@
         <put-attribute name="body" value="/views/secure/user/dashboard.jsp" />
     </definition>
     
-        <definition name="register" extends="base.definition">
+    <definition name="register" extends="base.definition">
         <put-attribute name="title" value="Bite the bet" />
         <put-attribute name="body" value="/views/register.jsp" />
     </definition>
     
-    <definition name="console" extends="base.definition">
-        <put-attribute name="title" value="Admin" />    
-       <put-attribute name="body" value="/views/secure/admin/console.jsp" />
+    <definition name="console" extends="admin.definition">
+        <put-attribute name="title" value="Admin" />   
+        <put-attribute name="bodyAdmin" value="/views/secure/admin/countries.jsp" />
     </definition>
     
 </tiles-definitions>
