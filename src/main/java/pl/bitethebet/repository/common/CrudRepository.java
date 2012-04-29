@@ -10,7 +10,6 @@ import java.util.Collection;
 import java.util.List;
 import javax.jdo.*;
 
-
 /**
  *
  * @author Toma
@@ -23,6 +22,7 @@ public class CrudRepository<T> {
     public CrudRepository() {
         setParametrizetType();
     }
+
     /**
      * gains the Class from T
      */
@@ -30,8 +30,6 @@ public class CrudRepository<T> {
         ParameterizedType genericSuperclass = (ParameterizedType) getClass().getGenericSuperclass();
         parametrizetType = (Class<T>) genericSuperclass.getActualTypeArguments()[0];
     }
-
-   
 
     public Collection<T> getAll() {
         PersistenceManager pm = pmfInstance.getPersistenceManager();
@@ -64,6 +62,38 @@ public class CrudRepository<T> {
         PersistenceManager pm = pmfInstance.getPersistenceManager();
         try {
             pm.deletePersistent(pm.getObjectById(parametrizetType, id));
+        } finally {
+            pm.close();
+        }
+    }
+
+    public Collection<T> findBySingleParamQuery(Class entityRepresentant, String queryFilter) {
+        PersistenceManager pm = pmfInstance.getPersistenceManager();
+        try {
+            List<T> queryEntityResults;
+            Query query = pm.newQuery(entityRepresentant);
+            query.setFilter(queryFilter);
+            queryEntityResults = (List<T>) query.execute();
+            queryEntityResults.size();
+            return queryEntityResults;
+
+        } finally {
+            pm.close();
+        }
+    }
+
+    public Collection<T> findByQuery(Class entityRepresentant, List<String> queryFilters) {
+        PersistenceManager pm = pmfInstance.getPersistenceManager();
+        try {
+            List<T> queryEntityResults;
+            Query query = pm.newQuery(entityRepresentant);
+            for (String queryFilter : queryFilters) {
+                query.setFilter(queryFilter);
+            }
+            queryEntityResults = (List<T>) query.execute();
+            queryEntityResults.size();
+            return queryEntityResults;
+
         } finally {
             pm.close();
         }

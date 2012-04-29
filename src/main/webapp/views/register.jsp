@@ -1,21 +1,23 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <div class="hero-unit">
-    <form class="form-horizontal">
+    <form:form method="post" action="registerUser.html" class="form-horizontal">
         <fieldset>
             <legend>Create your free account</legend>
             <div class="control-group">
-                <label class="control-label" for="login">Login</label>
+                <form:label path="login" class="control-label">Login</form:label>
                 <div class="controls">
-                    <input type="text" class="input-xlarge" id="login">
+                    <form:input path="login" type="text" class="input-xlarge"/>
                 </div>
-                <label class="control-label" for="password">Password</label>
+                <form:label path="password" class="control-label">Password</form:label>
                 <div class="controls">
-                    <input type="password" class="input-xlarge" id="password" >
-                </div>
+                    <form:input path="password" type="password" class="input-xlarge" />
             </div>
-        </fieldset>
-        <button class="btn" type="submit">
-            Create account
-        </button>
-    </form>
+        </div>
+    </fieldset>
+    <button class="btn" type="submit">
+        Create account
+    </button>
+    </form:form>
 </div>
