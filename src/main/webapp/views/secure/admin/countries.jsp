@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <div class="span9">
             <div class="hero-unit">
-                HEJ
+                HEJ 
 
                 <ul>
                     <c:forEach var="country" items="${countries}">

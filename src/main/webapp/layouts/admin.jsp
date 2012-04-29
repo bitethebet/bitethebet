@@ -27,8 +27,8 @@ body {
             <div class="well sidebar-nav">
                 <ul class="nav nav-list">
                     <li class="nav-header">Menu</li>
-                    <li class="<tiles:insertAttribute name="users" />"><a href="#">Users</a></li>
-                    <li class="<tiles:insertAttribute name="countries" />"><a href="#">Countries</a></li>
+                    <li class="<tiles:insertAttribute name="countries" />"><a href="/secure/admin/console.html">Countries</a></li>
+                    <li class="<tiles:insertAttribute name="users" />"><a href="/secure/admin/users.html">Users</a></li>
                     <li class="<tiles:insertAttribute name="bets" />"><a href="#">Bets</a></li>
                 </ul>
             </div><!--/.well -->

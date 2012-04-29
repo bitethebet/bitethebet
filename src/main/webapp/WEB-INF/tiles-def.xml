@@ -40,8 +40,13 @@
     </definition>
     
     <definition name="console" extends="admin.definition">
-                <put-attribute name="body" value="/views/secure/admin/countries.jsp" />
-                <put-attribute name="countries" value="active" />
+        <put-attribute name="body" value="/views/secure/admin/countries.jsp" />
+        <put-attribute name="countries" value="active" />
+    </definition>
+    
+    <definition name="users" extends="admin.definition">
+        <put-attribute name="body" value="/views/secure/admin/users.jsp" />
+        <put-attribute name="users" value="active" />
     </definition>
     
 </tiles-definitions>
