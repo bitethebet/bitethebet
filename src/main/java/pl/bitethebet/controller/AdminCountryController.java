@@ -19,12 +19,12 @@ import pl.bitethebet.model.Country;
  * @author Toma
  */
 @Controller
-public class AdminConsoleController {
+public class AdminCountryController {
     @Autowired
     CountryRepository countryRepository;
     
     @RequestMapping(value="/secure/admin/console")
-    public ModelAndView showConsole(){
+    public ModelAndView showCountries(){
         ModelAndView mav = new ModelAndView("console");
         mav.addObject("countries", countryRepository.getAll());
         mav.addObject("command", new Country());
