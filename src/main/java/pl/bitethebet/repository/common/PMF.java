@@ -13,7 +13,7 @@ import javax.jdo.PersistenceManagerFactory;
  *
  * @author Toma
  */
-public final class PMF {
+final class PMF {
 
     private static final PersistenceManagerFactory pmfInstance =
             JDOHelper.getPersistenceManagerFactory("transactions-optional");

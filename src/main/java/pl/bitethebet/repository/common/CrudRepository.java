@@ -16,8 +16,8 @@ import javax.jdo.*;
  */
 public class CrudRepository<T> {
 
-    private PersistenceManagerFactory pmfInstance = PMF.get();
-    protected Class parametrizetType;
+    protected PersistenceManagerFactory pmfInstance = PMF.get();
+    private Class parametrizetType;
 
     public CrudRepository() {
         setParametrizetType();

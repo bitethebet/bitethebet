@@ -3,7 +3,7 @@
        "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
        "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
 <tiles-definitions>
-   
+   <!--LAYOUTS -->
     <definition name="base.definition" template="/layouts/base.jsp">
         <put-attribute name="header" value="/layouts/header.jsp" />
         <put-attribute name="body" value="placeholder" />
@@ -13,9 +13,9 @@
         <put-attribute name="header" value="/layouts/header.jsp" />
         <put-attribute name="body" value="placeholder" />
         <put-attribute name="title" value="Bite the bet" />
-        <put-attribute name="users" value="" />
-        <put-attribute name="bets" value="" />
-        <put-attribute name="countries" value="" />
+        <put-attribute name="users_item" value="" />
+        <put-attribute name="bets_item" value="" />
+        <put-attribute name="countries_item" value="" />
     </definition>
     
     
@@ -39,14 +39,21 @@
         <put-attribute name="body" value="/views/register.jsp" />
     </definition>
     
+    
+    <!-- ADMIN Section-->
     <definition name="console" extends="admin.definition">
         <put-attribute name="body" value="/views/secure/admin/countries.jsp" />
-        <put-attribute name="countries" value="active" />
+        <put-attribute name="countries_item" value="active" />
     </definition>
     
     <definition name="users" extends="admin.definition">
         <put-attribute name="body" value="/views/secure/admin/users.jsp" />
-        <put-attribute name="users" value="active" />
+        <put-attribute name="users_item" value="active" />
+    </definition>
+    
+    <definition name="betDefinitions" extends="admin.definition">
+        <put-attribute name="body" value="/views/secure/admin/betDefinitions.jsp" />
+        <put-attribute name="bets_item" value="active" />
     </definition>
     
 </tiles-definitions>
