@@ -16,13 +16,10 @@ public class UserAccount implements UserDetails {
     @PrimaryKey
     @Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)
     private Long id;
-    
     @Persistent
     private String username;
-    
     @Persistent
     private String password;
-    
     @Persistent
     private AuthorityRole authorityRole;
 
@@ -56,22 +53,22 @@ public class UserAccount implements UserDetails {
 
     @Override
     public boolean isAccountNonExpired() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return true;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return true;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return true;
     }
 
     @Override
     public boolean isEnabled() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return true;
     }
 
     @Override
