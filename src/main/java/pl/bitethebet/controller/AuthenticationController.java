@@ -19,7 +19,7 @@ import pl.bitethebet.repository.UserAccountRepository;
 public class AuthenticationController {
 
     @Autowired
-    private UserAccountRepository userRepository;
+    private UserAccountRepository userAccountRepository;
 
     @RequestMapping(value = "/login")
     public ModelAndView index() {
@@ -31,8 +31,8 @@ public class AuthenticationController {
 
     @RequestMapping(value = "/registerUser", method = RequestMethod.POST)
     public String registerUser(@ModelAttribute("user") UserAccount user, BindingResult result) {
-        user.setAuthorityRole(AuthorityRole.USER);
-        userRepository.create(user);
+        user.setAuthorityRole(AuthorityRole.ROLE_USER);
+        userAccountRepository.create(user);
         return "redirect:login.html";
     }
 
