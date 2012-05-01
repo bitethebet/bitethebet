@@ -6,9 +6,9 @@
         <fieldset>
             <legend>Create your free account</legend>
             <div class="control-group">
-                <form:label path="login" class="control-label">Login</form:label>
+                <form:label path="username" class="control-label">Login</form:label>
                 <div class="controls">
-                    <form:input path="login" type="text" class="input-xlarge"/>
+                    <form:input path="username" type="text" class="input-xlarge"/>
                 </div>
                 <form:label path="password" class="control-label">Password</form:label>
                 <div class="controls">

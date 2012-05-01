@@ -13,12 +13,10 @@
         <form-login login-page="/login.html"/>
         <logout logout-success-url="/index.jsp"/>
     </http>
+ 
     <authentication-manager>
-        <authentication-provider>
-            <user-service>
-                <user name="bitebet" password="bitebet" authorities="ROLE_USER" />
-                <user name="admin" password="admin" authorities="ROLE_ADMIN" />
-            </user-service>
-        </authentication-provider>
+        <authentication-provider user-service-ref='userAccountDetailsService' />
     </authentication-manager>
+ 
+    <beans:bean id="userAccountDetailsService" class="pl.bitethebet.security.UserAccountDetailsService" />
 </beans:beans>   

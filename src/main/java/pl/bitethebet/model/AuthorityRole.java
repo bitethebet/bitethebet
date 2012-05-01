@@ -4,6 +4,14 @@
  */
 package pl.bitethebet.model;
 
-public enum AuthorityRole {
+import org.springframework.security.core.GrantedAuthority;
+
+public enum AuthorityRole implements GrantedAuthority {
+
     USER, ADMIN;
+
+    @Override
+    public String getAuthority() {
+        return toString();
+    }
 }

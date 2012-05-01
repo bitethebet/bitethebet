@@ -15,14 +15,15 @@ import pl.bitethebet.repository.UserAccountRepository;
  *
  * @author mrowkam
  */
-public class UserAccountDetailsService {//implements UserDetailsService{
-    
-   /** @Autowired
+public class UserAccountDetailsService implements UserDetailsService {
+
+   // @Autowired
     UserAccountRepository userRepository;
 
     @Override
     public UserDetails loadUserByUsername(String string) throws UsernameNotFoundException {
-        UserAccount userAccount = userRepository.
-    }**/
-    
+        UserAccount userAccount = userRepository.findByUsername(string);
+        return userAccount;
+
+    }
 }

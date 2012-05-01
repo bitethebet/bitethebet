@@ -24,7 +24,8 @@ public class AuthenticationController {
     @RequestMapping(value = "/login")
     public ModelAndView index() {
         ModelAndView mav = new ModelAndView("login");
-        //TODO: log login results        
+        UserAccount user = new UserAccount();
+        mav.addObject("command", new UserAccount());       
         return mav;
     }
 
