@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <div class="navbar navbar-fixed-top">
     <div class="navbar-inner">
         <div class="container-fluid">
@@ -16,6 +17,7 @@
                 <p class="navbar-text pull-right">Logged in as <a href="#">username</a></p>
                 <p class="navbar-text pull-right"><a href="/register.html">Register </a></p>
                 <p class="navbar-text pull-right"><a href="/login.html">Login </a></p>
+                <p class="navbar-text pull-right"><a href="<c:url value="/j_spring_security_logout"/>">Logout</a></p>
             </div><!--/.nav-collapse -->
         </div>
     </div>

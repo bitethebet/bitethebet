@@ -13,7 +13,7 @@
         <intercept-url pattern="/secure/user/**" access="hasRole('ROLE_USER')" />
         <intercept-url pattern="/secure/admin/**" access="hasRole('ROLE_ADMIN')" />
         <form-login login-page="/login.html"/>
-        <logout logout-success-url="/index.jsp"/>
+        <logout logout-success-url="/index.html"/>
     </http>
      <beans:bean id="userAccountDetailsService" class="pl.bitethebet.security.UserAccountDetailsService">
         <beans:property name="userAccountRepository" ref="userAccountRepository"/>
