@@ -18,7 +18,6 @@ public class UserAccountRepository extends CrudRepository<UserAccount> {
 
     public UserAccount findByUsername(String username) {
         List<UserAccount> us = (List<UserAccount>) findBySingleParamQuery(UserAccount.class, "username == " + username);
-        System.out.println(us.get(0).getUsername());
         return us.get(0);
     }
 }

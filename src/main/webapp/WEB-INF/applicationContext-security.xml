@@ -8,9 +8,10 @@
   <global-method-security secured-annotations="enabled"/>
   
     <http pattern="/login.jsp*" security="none"/>
-    <http>
-        <intercept-url pattern="/secure/user/**" access="ROLE_USER" />
-        <intercept-url pattern="/secure/admin/**" access="ROLE_ADMIN" />
+    <http auto-config="true" use-expressions="true">
+        <intercept-url pattern="/errors/**" access="permitAll" />
+        <intercept-url pattern="/secure/user/**" access="hasRole('ROLE_USER')" />
+        <intercept-url pattern="/secure/admin/**" access="hasRole('ROLE_ADMIN')" />
         <form-login login-page="/login.html"/>
         <logout logout-success-url="/index.jsp"/>
     </http>

@@ -17,26 +17,23 @@
         <put-attribute name="bets_item" value="" />
         <put-attribute name="countries_item" value="" />
     </definition>
-    
-    
+
     <definition name="index" extends="base.definition">
         <put-attribute name="title" value="Bite the bet" />
         <put-attribute name="body" value="/views/index.jsp" />
     </definition>
-  
+  <!--AUTH SECTION-->
     <definition name="login" extends="base.definition">
         <put-attribute name="title" value="Bite the bet" />
         <put-attribute name="body" value="/views/login.jsp" />
     </definition>
-    
-    <definition name="dashboard" extends="base.definition">
-        <put-attribute name="body" value="/views/secure/user/dashboard.jsp" />
-    </definition>
-    
-
     <definition name="register" extends="base.definition">
         <put-attribute name="title" value="Register user" />
         <put-attribute name="body" value="/views/register.jsp" />
+    </definition>
+<!--USER SECTION -->    
+    <definition name="dashboard" extends="base.definition">
+        <put-attribute name="body" value="/views/secure/user/dashboard.jsp" />
     </definition>
     
     
@@ -53,6 +50,16 @@
     
     <definition name="betDefinitions" extends="admin.definition">
         <put-attribute name="body" value="/views/secure/admin/betDefinitions.jsp" />
+        <put-attribute name="bets_item" value="active" />
+    </definition>
+    
+    <!--ERROR PAGES-->
+       <definition name="error" extends="base.definition">
+        <put-attribute name="body" value="/views/errors/access-denied.jsp" />
+        <put-attribute name="bets_item" value="active" />
+    </definition>
+       <definition name="betDefinitions" extends="base.definition">
+        <put-attribute name="body" value="/views/errors/page-not-found.jsp" />
         <put-attribute name="bets_item" value="active" />
     </definition>
     

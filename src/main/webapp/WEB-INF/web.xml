@@ -11,7 +11,7 @@
             /WEB-INF/applicationContext-security.xml
         </param-value>
     </context-param>
-        <listener>
+    <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
     
@@ -19,17 +19,17 @@
         <servlet-name>dispatcher</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <init-param>
-        <param-name>contextConfigLocation</param-name>
-        <param-value>/WEB-INF/dispatcher-servlet.xml</param-value>
-    </init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>/WEB-INF/dispatcher-servlet.xml</param-value>
+        </init-param>
         <load-on-startup>2</load-on-startup>
     </servlet>
     <servlet-mapping>
         <servlet-name>dispatcher</servlet-name>
         <init-param>
-        <param-name>contextConfigLocation</param-name>
-        <param-value>/WEB-INF/dispatcher-servlet.xml</param-value>
-    </init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>/WEB-INF/dispatcher-servlet.xml</param-value>
+        </init-param>
 
         <url-pattern>*.html</url-pattern>
     </servlet-mapping>
@@ -46,8 +46,16 @@
         <url-pattern>/*</url-pattern>
     </filter-mapping>
 
-
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>
     </welcome-file-list>
+    
+    <error-page>
+        <error-code>404</error-code>
+        <location>/views/errors/page-not-found.jsp</location>
+    </error-page>
+    <error-page>
+        <error-code>403</error-code>
+        <location>/views/errors/access-denied.jsp</location>
+    </error-page>
 </web-app>
