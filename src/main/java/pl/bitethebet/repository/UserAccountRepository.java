@@ -17,7 +17,22 @@ import pl.bitethebet.repository.common.CrudRepository;
 public class UserAccountRepository extends CrudRepository<UserAccount> {
 
     public UserAccount findByUsername(String username) {
-        List<UserAccount> us = (List<UserAccount>) findBySingleParamQuery(UserAccount.class, "username == " + username);
+        String queryParam = UserAccountQueryParams.USERNAME.getValue() + username;
+        List<UserAccount> us = (List<UserAccount>) findBySingleParamQuery(queryParam);
         return us.get(0);
+    }
+
+    private enum UserAccountQueryParams {
+
+        USERNAME("username == ");
+        private String value;
+
+        UserAccountQueryParams(String val) {
+            this.value = val;
+        }
+
+        public String getValue() {
+            return value;
+        }
     }
 }

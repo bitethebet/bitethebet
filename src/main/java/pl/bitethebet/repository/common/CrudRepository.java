@@ -8,7 +8,10 @@ import java.lang.reflect.ParameterizedType;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import javax.jdo.*;
+import javax.jdo.Extent;
+import javax.jdo.PersistenceManager;
+import javax.jdo.PersistenceManagerFactory;
+import javax.jdo.Query;
 
 /**
  *
@@ -67,11 +70,11 @@ public class CrudRepository<T> {
         }
     }
 
-    public Collection<T> findBySingleParamQuery(Class entityRepresentant, String queryFilter) {
+    public Collection<T> findBySingleParamQuery(String queryFilter) {
         PersistenceManager pm = pmfInstance.getPersistenceManager();
         try {
             List<T> queryEntityResults;
-            Query query = pm.newQuery(entityRepresentant);
+            Query query = pm.newQuery(parametrizetType);
             query.setFilter(queryFilter);
             queryEntityResults = (List<T>) query.execute();
             queryEntityResults.size();
@@ -82,11 +85,11 @@ public class CrudRepository<T> {
         }
     }
 
-    public Collection<T> findByQuery(Class entityRepresentant, List<String> queryFilters) {
+    public Collection<T> findByQuery(List<String> queryFilters) {
         PersistenceManager pm = pmfInstance.getPersistenceManager();
         try {
             List<T> queryEntityResults;
-            Query query = pm.newQuery(entityRepresentant);
+            Query query = pm.newQuery(parametrizetType);
             for (String queryFilter : queryFilters) {
                 query.setFilter(queryFilter);
             }
