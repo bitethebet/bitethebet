@@ -21,5 +21,6 @@
     <authentication-manager>
         <authentication-provider user-service-ref='userAccountDetailsService' />
     </authentication-manager>
+    <beans:bean class="org.springframework.security.web.access.expression.DefaultWebSecurityExpressionHandler"/>
  
 </beans:beans>   
