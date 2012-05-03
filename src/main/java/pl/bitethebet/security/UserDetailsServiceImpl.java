@@ -17,7 +17,7 @@ import pl.bitethebet.repository.UserAccountRepository;
  * @author mrowkam
  */
 @Service
-public class UserAccountDetailsService implements UserDetailsService {
+public class UserDetailsServiceImpl implements UserDetailsService {
 
    // @Autowired
     private UserAccountRepository userAccountRepository;

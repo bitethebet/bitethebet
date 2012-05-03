@@ -5,22 +5,23 @@
                     http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
                     http://www.springframework.org/schema/security 
                     http://www.springframework.org/schema/security/spring-security-3.1.xsd">
-  <global-method-security secured-annotations="enabled"/>
+    <global-method-security secured-annotations="enabled"/>
   
     <http pattern="/login.jsp*" security="none"/>
     <http auto-config="true" use-expressions="true">
         <intercept-url pattern="/errors/**" access="permitAll" />
         <intercept-url pattern="/secure/user/**" access="hasRole('ROLE_USER')" />
         <intercept-url pattern="/secure/admin/**" access="hasRole('ROLE_ADMIN')" />
-        <form-login login-page="/login.html"/>
-        <logout logout-success-url="/index.html"/>
-    </http>
-     <beans:bean id="userAccountDetailsService" class="pl.bitethebet.security.UserAccountDetailsService">
-        <beans:property name="userAccountRepository" ref="userAccountRepository"/>
-    </beans:bean>
-    <authentication-manager>
-        <authentication-provider user-service-ref='userAccountDetailsService' />
-    </authentication-manager>
-    <beans:bean class="org.springframework.security.web.access.expression.DefaultWebSecurityExpressionHandler"/>
- 
-</beans:beans>   
+        <form-login login-page="/login.html" authentication-success-handler-ref="authenticationSuccessHandler"/>
+            <logout logout-success-url="/index.html"/>
+        </http>
+        <beans:bean id="userDetailsServiceImpl" class="pl.bitethebet.security.UserDetailsServiceImpl">
+            <beans:property name="userAccountRepository" ref="userAccountRepository"/>
+        </beans:bean>
+        <authentication-manager>
+            <authentication-provider user-service-ref='userDetailsServiceImpl' />
+        </authentication-manager>
+        <beans:bean id="authenticationSuccessHandler" class="pl.bitethebet.security.AuthenticationSuccessHandlerImpl">
+        </beans:bean>  
+
+    </beans:beans>   

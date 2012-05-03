@@ -8,4 +8,5 @@
   
     <beans:bean id="userAccountRepository" class="pl.bitethebet.repository.UserAccountRepository">
     </beans:bean>
+    
 </beans:beans>   
