@@ -11,9 +11,12 @@
             <a class="brand" href="/index.html">Bite the bet</a>
             <div class="nav-collapse">
                 <ul class="nav">
+                    <sec:authorize access="hasRole('ROLE_ADMIN')">                        
                     <li class="active"><a href="/secure/admin/console.html">Admin</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    </sec:authorize>
+                    <sec:authorize access="hasRole('ROLE_USER')">                        
+                    <li class="active"><a href="/secure/user/dashboard.html">Dashboard</a></li>
+                    </sec:authorize>                    
                 </ul>
 
                 <sec:authorize access="isAuthenticated()">
@@ -28,7 +31,7 @@
                     </p>
                 </sec:authorize>
                 <sec:authorize access="isAnonymous()">
-                    <p class="navbar-text pull-right"><a class="btn btn-success" href="/login.html" style="margin-left: 30px;">Login </a></p>
+                    <p class="navbar-text pull-right"><a class="btn btn-success" href="/login.html" style="margin-left: 30px;">Login</a></p>
                     <p class="navbar-text pull-right"><a class="btn" href="/register.html">Sign Up</a></p>
                 </sec:authorize>
             </div>

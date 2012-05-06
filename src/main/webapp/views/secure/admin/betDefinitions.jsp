@@ -2,7 +2,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
             <div class="hero-unit">
-             User Management
-            </div>
+              bets view
 
-     
+            </div>
