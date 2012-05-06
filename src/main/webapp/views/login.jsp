@@ -12,7 +12,7 @@
             <input id="password" name="j_password" type="password" />
         </div>
         <div>
-            <input type="submit" />
+            <input type="submit" value="Login" />
         </div>
     </form>
 </div>

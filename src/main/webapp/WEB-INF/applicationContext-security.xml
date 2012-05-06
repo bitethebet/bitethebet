@@ -13,15 +13,31 @@
         <intercept-url pattern="/secure/user/**" access="hasRole('ROLE_USER')" />
         <intercept-url pattern="/secure/admin/**" access="hasRole('ROLE_ADMIN')" />
         <form-login login-page="/login.html" authentication-success-handler-ref="authenticationSuccessHandler"/>
-            <logout logout-success-url="/index.html"/>
-        </http>
-        <beans:bean id="userDetailsServiceImpl" class="pl.bitethebet.security.UserDetailsServiceImpl">
-            <beans:property name="userAccountRepository" ref="userAccountRepository"/>
-        </beans:bean>
-        <authentication-manager>
-            <authentication-provider user-service-ref='userDetailsServiceImpl' />
-        </authentication-manager>
-        <beans:bean id="authenticationSuccessHandler" class="pl.bitethebet.security.AuthenticationSuccessHandlerImpl">
-        </beans:bean>  
+        <logout logout-success-url="/index.html"/>
+    </http>
+    
+    <authentication-manager>
+        <authentication-provider user-service-ref='userDetailsServiceImpl'>
+            <password-encoder hash="sha-256">
+                <salt-source ref="saltSource" />
+            </password-encoder>
+        </authentication-provider>
+        <authentication-provider>
+            <user-service>
+                <user name="admin" password="admin" authorities="ROLE_ADMIN" />
+            </user-service>
+        </authentication-provider>
+    </authentication-manager>
+    <beans:bean id="passwordEncoder" class="org.springframework.security.authentication.encoding.ShaPasswordEncoder">
+        <beans:constructor-arg value="256"/>
+    </beans:bean>
+    <beans:bean id="saltSource" class="org.springframework.security.authentication.dao.ReflectionSaltSource">
+        <beans:property name="userPropertyToUse" value="username"/>
+    </beans:bean>
+    <beans:bean id="authenticationSuccessHandler" class="pl.bitethebet.security.AuthenticationSuccessHandlerImpl">
+    </beans:bean>  
+    <beans:bean id="userDetailsServiceImpl" class="pl.bitethebet.security.UserDetailsServiceImpl">
+        <beans:property name="userAccountRepository" ref="userAccountRepository"/>
+    </beans:bean>
 
-    </beans:beans>   
+</beans:beans>   

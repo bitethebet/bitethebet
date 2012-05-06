@@ -4,7 +4,6 @@
  */
 package pl.bitethebet.security;
 
-import org.springframework.context.annotation.DependsOn;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -19,21 +18,23 @@ import pl.bitethebet.repository.UserAccountRepository;
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
 
-   // @Autowired
     private UserAccountRepository userAccountRepository;
 
+
+    @Override
+    public UserDetails loadUserByUsername(String string) throws UsernameNotFoundException {
+        UserAccount userAccount = userAccountRepository.findByUsername(string);
+        if (userAccount == null) {
+            throw new UsernameNotFoundException("Username not found exception");
+        }
+        return userAccount;
+
+    }
     public UserAccountRepository getUserAccountRepository() {
         return userAccountRepository;
     }
 
     public void setUserAccountRepository(UserAccountRepository userRepository) {
         this.userAccountRepository = userRepository;
-    }
-
-    @Override
-    public UserDetails loadUserByUsername(String string) throws UsernameNotFoundException {
-        UserAccount userAccount = userAccountRepository.findByUsername(string);
-        return userAccount;
-
     }
 }

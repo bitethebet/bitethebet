@@ -22,7 +22,7 @@ public class UserAccount implements UserDetails {
     private String password;
     @Persistent
     private AuthorityRole authorityRole;
-
+    
     public Long getId() {
         return id;
     }
@@ -77,7 +77,7 @@ public class UserAccount implements UserDetails {
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        this.password = password;;
     }
 
     public void setUsername(String username) {
