@@ -58,9 +58,5 @@
         <put-attribute name="body" value="/views/errors/access-denied.jsp" />
         <put-attribute name="bets_item" value="active" />
     </definition>
-       <definition name="betDefinitions" extends="base.definition">
-        <put-attribute name="body" value="/views/errors/page-not-found.jsp" />
-        <put-attribute name="bets_item" value="active" />
-    </definition>
-    
+      
 </tiles-definitions>
