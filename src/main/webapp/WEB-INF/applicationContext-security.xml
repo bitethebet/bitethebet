@@ -20,6 +20,11 @@
     </beans:bean>
     <authentication-manager>
         <authentication-provider user-service-ref='userAccountDetailsService' />
+          <authentication-provider>
+            <user-service>
+                <user name="admin" password="admin" authorities="ROLE_ADMIN" />
+            </user-service>
+        </authentication-provider>
     </authentication-manager>
     <beans:bean class="org.springframework.security.web.access.expression.DefaultWebSecurityExpressionHandler"/>
  
