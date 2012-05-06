@@ -39,5 +39,4 @@
     <beans:bean id="userDetailsServiceImpl" class="pl.bitethebet.security.UserDetailsServiceImpl">
         <beans:property name="userAccountRepository" ref="userAccountRepository"/>
     </beans:bean>
-
 </beans:beans>   

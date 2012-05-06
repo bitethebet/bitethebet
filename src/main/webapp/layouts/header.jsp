@@ -18,13 +18,19 @@
 
                 <sec:authorize access="isAuthenticated()">
                     <p class="navbar-text pull-right"><a class="btn" href="j_spring_security_logout" style="margin-left: 30px;"> Logout</a></p>
-                    <p class="navbar-text pull-right">Logged in as <a href="#"><sec:authentication property="principal.username" /></a></p>
+                    <p class="navbar-text pull-right">Logged in as 
+                        <sec:authorize access="hasRole('ROLE_ADMIN')">        
+                            <a href="/secure/admin/console.html"><sec:authentication property="principal.username" /></a></p>
+                        </sec:authorize>
+                        <sec:authorize access="hasRole('ROLE_USER')">        
+                        <a href="/secure/user/dashboard.html"><sec:authentication property="principal.username" /></a></p>
+                    </sec:authorize>
                 </sec:authorize>
                 <sec:authorize access="isAnonymous()">
                     <p class="navbar-text pull-right"><a class="btn btn-success" href="/login.html" style="margin-left: 30px;">Login </a></p>
                     <p class="navbar-text pull-right"><a class="btn" href="/register.html">Sign Up</a></p>
                 </sec:authorize>
-            </div><!--/.nav-collapse -->
+            </div>
         </div>
     </div>
 </div>
