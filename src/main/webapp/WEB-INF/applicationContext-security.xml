@@ -12,7 +12,8 @@
         <intercept-url pattern="/errors/**" access="permitAll" />
         <intercept-url pattern="/secure/user/**" access="hasRole('ROLE_USER')" />
         <intercept-url pattern="/secure/admin/**" access="hasRole('ROLE_ADMIN')" />
-        <form-login login-page="/index.html" authentication-success-handler-ref="authenticationSuccessHandler"/>
+        <form-login login-page="/index.html" authentication-success-handler-ref="authenticationSuccessHandler" 
+            authentication-failure-url="/login.html?login_error=true"/>
         <logout logout-success-url="/index.html"/>
     </http>
     

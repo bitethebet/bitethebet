@@ -2,6 +2,12 @@
 <%@ taglib prefix="tag" uri="http://www.springframework.org/tags" %>
 <div class="hero-unit">
     <p>
+        <c:if test="${!empty param.login_error}">
+        <div class="alert alert-error">
+            <button class="close" data-dismiss="alert">×</button>
+            <strong>Warning!</strong> Error
+        </div>
+    </c:if>
     <form action="j_spring_security_check" method="POST">
         <div>
             <label for="login"></label>
