@@ -30,7 +30,6 @@ public class AuthenticationController {
     @RequestMapping(value = "/login")
     public ModelAndView index() {
         ModelAndView mav = new ModelAndView("login");
-        UserAccount user = new UserAccount();
         mav.addObject("command", new UserAccount());        
         return mav;
     }

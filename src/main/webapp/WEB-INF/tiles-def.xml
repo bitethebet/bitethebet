@@ -54,9 +54,11 @@
     </definition>
     
     <!--ERROR PAGES-->
-       <definition name="error" extends="base.definition">
+    <definition name="errorAccessDenied" extends="base.definition">
         <put-attribute name="body" value="/views/errors/access-denied.jsp" />
-        <put-attribute name="bets_item" value="active" />
     </definition>
       
+    <definition name="errorPageNotFound" extends="base.definition">
+        <put-attribute name="body" value="/views/errors/page-not-found.jsp" />
+    </definition>
 </tiles-definitions>
