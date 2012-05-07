@@ -12,10 +12,10 @@
             <div class="nav-collapse">
                 <ul class="nav">
                     <sec:authorize access="hasRole('ROLE_ADMIN')">                        
-                    <li class="active"><a href="/secure/admin/console.html">Admin</a></li>
+                        <li class="active"><a href="/secure/admin/console.html">Admin</a></li>
                     </sec:authorize>
                     <sec:authorize access="hasRole('ROLE_USER')">                        
-                    <li class="active"><a href="/secure/user/dashboard.html">Dashboard</a></li>
+                        <li class="active"><a href="/secure/user/dashboard.html">Dashboard</a></li>
                     </sec:authorize>                    
                 </ul>
 
@@ -33,6 +33,11 @@
                 <sec:authorize access="isAnonymous()">
                     <p class="navbar-text pull-right"><a class="btn" href="/register.html">Sign Up</a></p>
                 </sec:authorize>
+                <span style="float: right">
+                    <a href="?lang=en">en</a>
+                    |
+                    <a href="?lang=pl">pl</a>
+                </span>
             </div>
         </div>
     </div>
