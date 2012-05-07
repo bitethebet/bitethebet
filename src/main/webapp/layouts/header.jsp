@@ -31,7 +31,6 @@
                     </p>
                 </sec:authorize>
                 <sec:authorize access="isAnonymous()">
-                    <p class="navbar-text pull-right"><a class="btn btn-success" href="/login.html" style="margin-left: 30px;">Login</a></p>
                     <p class="navbar-text pull-right"><a class="btn" href="/register.html">Sign Up</a></p>
                 </sec:authorize>
             </div>

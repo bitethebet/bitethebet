@@ -7,6 +7,7 @@
     <definition name="base.definition" template="/layouts/base.jsp">
         <put-attribute name="header" value="/layouts/header.jsp" />
         <put-attribute name="body" value="placeholder" />
+        <put-attribute name="authPanel" value="placeholder" />
         <put-attribute name="title" value="Bite the bet" />
     </definition>
     <definition name="admin.definition" template="/layouts/admin.jsp">
@@ -17,22 +18,24 @@
         <put-attribute name="bets_item" value="" />
         <put-attribute name="countries_item" value="" />
     </definition>
+    <definition name="user.definition" template="/layouts/user.jsp">
+        <put-attribute name="header" value="/layouts/header.jsp" />
+        <put-attribute name="body" value="placeholder" />
+        <put-attribute name="title" value="Bite the bet" />
+    </definition>
 
     <definition name="index" extends="base.definition">
         <put-attribute name="title" value="Bite the bet" />
         <put-attribute name="body" value="/views/index.jsp" />
+        <put-attribute name="authPanel" value="/views/authenticationPanel.jsp" />
     </definition>
   <!--AUTH SECTION-->
-    <definition name="login" extends="base.definition">
-        <put-attribute name="title" value="Bite the bet" />
-        <put-attribute name="body" value="/views/login.jsp" />
-    </definition>
     <definition name="register" extends="base.definition">
         <put-attribute name="title" value="Register user" />
         <put-attribute name="body" value="/views/register.jsp" />
     </definition>
 <!--USER SECTION -->    
-    <definition name="dashboard" extends="base.definition">
+    <definition name="dashboard" extends="user.definition">
         <put-attribute name="body" value="/views/secure/user/dashboard.jsp" />
     </definition>
     

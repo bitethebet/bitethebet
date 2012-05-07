@@ -39,7 +39,7 @@ public class AuthenticationController {
         user.setAuthorityRole(AuthorityRole.ROLE_USER);
         user.setPassword(passwordEncoder.encodePassword(user.getPassword(), saltSource.getSalt(user)));
         userAccountRepository.create(user);
-        return "redirect:login.html";
+        return "redirect:index.html";
     }
     
     @RequestMapping(value = "/register")
