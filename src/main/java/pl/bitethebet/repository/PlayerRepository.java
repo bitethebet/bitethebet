@@ -5,7 +5,7 @@
 package pl.bitethebet.repository;
 
 import org.springframework.stereotype.Repository;
-import pl.bitethebet.model.Country;
+import pl.bitethebet.model.Player;
 import pl.bitethebet.repository.common.CrudRepository;
 
 /**
@@ -13,7 +13,9 @@ import pl.bitethebet.repository.common.CrudRepository;
  * @author Toma
  */
 @Repository
-public class CountryRepository extends CrudRepository<Country> {
-
+public class PlayerRepository extends CrudRepository<Player> {
+  public Player findByName(String name){
+        return findBySingleParamQuery2("name == '"+name+"'");        
+    }
      
 }

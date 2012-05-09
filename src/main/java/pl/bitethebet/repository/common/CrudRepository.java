@@ -69,6 +69,16 @@ public class CrudRepository<T> {
             pm.close();
         }
     }
+    
+    public T getById(Long id) {
+        PersistenceManager pm = pmfInstance.getPersistenceManager();
+        try {
+           
+            return  (T) pm.getObjectById(parametrizetType, id);
+        } finally {
+            pm.close();
+        }
+    }
 
     public Collection<T> findBySingleParamQuery(String queryFilter) {
         PersistenceManager pm = pmfInstance.getPersistenceManager();
@@ -84,8 +94,28 @@ public class CrudRepository<T> {
             pm.close();
         }
     }
+    
+       public T findBySingleParamQuery2(String queryFilter) {
+        PersistenceManager pm = pmfInstance.getPersistenceManager();
+        try {
+            List<T> queryEntityResults;
+            Query query = pm.newQuery(parametrizetType);
+            query.setFilter(queryFilter);
+            queryEntityResults = (List<T>) query.execute();
+            queryEntityResults.size();
+            return pm.detachCopy(queryEntityResults.get(0));
 
-    public Collection<T> findByQuery(List<String> queryFilters) {
+        } finally {
+            pm.close();
+        }
+    }
+    
+    
+    
+    
+    
+
+    public Collection<T> findByQuery(List<String> queryFilters, Class type) {
         PersistenceManager pm = pmfInstance.getPersistenceManager();
         try {
             List<T> queryEntityResults;

@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-import pl.bitethebet.repository.CountryRepository;
-import pl.bitethebet.model.Country;
+import pl.bitethebet.repository.PlayerRepository;
+import pl.bitethebet.model.Player;
 
 /**
  *
@@ -21,18 +21,18 @@ import pl.bitethebet.model.Country;
 @Controller
 public class AdminCountryController {
     @Autowired
-    CountryRepository countryRepository;
+    PlayerRepository countryRepository;
     
     @RequestMapping(value="/secure/admin/console")
     public ModelAndView showCountries(){
         ModelAndView mav = new ModelAndView("console");
         mav.addObject("countries", countryRepository.getAll());
-        mav.addObject("command", new Country());
+        mav.addObject("command", new Player());
         return mav;
     }
     
     @RequestMapping(value="/secure/admin/addCountry", method= RequestMethod.POST)
-    public String addCountry(@ModelAttribute("country") Country country, BindingResult result){
+    public String addCountry(@ModelAttribute("country") Player country, BindingResult result){
         countryRepository.create(country);
         return "redirect:/secure/admin/console.html";
     }

@@ -4,7 +4,9 @@
  */
 package pl.bitethebet.model;
 
+
 import java.util.Date;
+import java.util.List;
 import javax.jdo.annotations.IdGeneratorStrategy;
 import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Persistent;
@@ -14,7 +16,7 @@ import javax.jdo.annotations.PrimaryKey;
  *
  * @author Toma
  */
-@PersistenceCapable
+@PersistenceCapable(detachable = "true")
 public class BetDefinition {
     
     @PrimaryKey
@@ -22,15 +24,15 @@ public class BetDefinition {
     private Long id;
     @Persistent
     private Date date;
-    @Persistent
-    private Country playerOne;
-    @Persistent
-    private Country playerTwo;
-    @Persistent
-    private Integer playerOneScore;
-    @Persistent
-    private Integer playerTwoScore;
+    
+    private List<Player> players;
 
+    public BetDefinition(List<Player> _palyers) {
+        players = _palyers;
+    }
+
+    
+    
     /**
      * @return the id
      */
@@ -60,59 +62,16 @@ public class BetDefinition {
     }
 
     /**
-     * @return the playerOne
+     * @return the players
      */
-    public Country getPlayerOne() {
-        return playerOne;
+    public List<Player> getPlayers() {
+        return players;
     }
 
     /**
-     * @param playerOne the playerOne to set
+     * @param players the players to set
      */
-    public void setPlayerOne(Country playerOne) {
-        this.playerOne = playerOne;
+    public void setPlayers(List<Player> players) {
+        this.players = players;
     }
-
-    /**
-     * @return the playerTwo
-     */
-    public Country getPlayerTwo() {
-        return playerTwo;
-    }
-
-    /**
-     * @param playerTwo the playerTwo to set
-     */
-    public void setPlayerTwo(Country playerTwo) {
-        this.playerTwo = playerTwo;
-    }
-
-    /**
-     * @return the playerOneScore
-     */
-    public Integer getPlayerOneScore() {
-        return playerOneScore;
-    }
-
-    /**
-     * @param playerOneScore the playerOneScore to set
-     */
-    public void setPlayerOneScore(Integer playerOneScore) {
-        this.playerOneScore = playerOneScore;
-    }
-
-    /**
-     * @return the playerTwoScore
-     */
-    public Integer getPlayerTwoScore() {
-        return playerTwoScore;
-    }
-
-    /**
-     * @param playerTwoScore the playerTwoScore to set
-     */
-    public void setPlayerTwoScore(Integer playerTwoScore) {
-        this.playerTwoScore = playerTwoScore;
-    }
-    
 }
