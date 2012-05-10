@@ -25,6 +25,7 @@ public class BetDefinition {
     @Persistent
     private Date date;
     
+    @Persistent(defaultFetchGroup="true")
     private List<Player> players;
 
     public BetDefinition(List<Player> _palyers) {

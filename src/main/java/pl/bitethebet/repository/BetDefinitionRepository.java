@@ -4,6 +4,8 @@
  */
 package pl.bitethebet.repository;
 
+import java.util.Arrays;
+import javax.jdo.PersistenceManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import pl.bitethebet.model.BetDefinition;
@@ -22,8 +24,14 @@ public class BetDefinitionRepository extends CrudRepository<BetDefinition> {
 
     @Override
     public void create(BetDefinition entity) {
-        fetchChildren(entity);
-        super.create(entity);
+        //fetchChildren(entity);
+        PersistenceManager pm = pmfInstance.getPersistenceManager();
+        pm.currentTransaction().begin();
+        entity.setPlayers(Arrays.asList(new Player("janek"),new Player("franek")));
+        //super.create(entity);
+        pm.makePersistent(entity);
+        pm.currentTransaction().commit();
+        pm.close();
     }
 
     private void fetchChildren(BetDefinition entity) {

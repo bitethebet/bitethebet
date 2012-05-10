@@ -31,6 +31,11 @@ public class Player {
     public Player() {
     }
 
+    public Player(String name) {
+        this.name = name;
+    }
+    
+
     /**
      * @return the name
      */
