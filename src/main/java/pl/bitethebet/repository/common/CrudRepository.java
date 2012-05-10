@@ -36,17 +36,11 @@ public class CrudRepository<T> {
 
     public Collection<T> getAll() {
         PersistenceManager pm = pmfInstance.getPersistenceManager();
-        try {
-
-            List<T> entities = new ArrayList<T>();
-
-            Extent<T> extent = pm.getExtent(parametrizetType, false);
-            for (T entity : extent) {
-                entities.add(entity);
-            }
-            extent.closeAll();
-
-            return entities;
+        try {    
+            Query query = pm.newQuery(parametrizetType);
+            List<T> queryEntityResults = (List<T>) query.execute();
+            queryEntityResults.size();
+            return queryEntityResults;
         } finally {
             pm.close();
         }
