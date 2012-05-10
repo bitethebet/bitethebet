@@ -6,7 +6,6 @@
     <thead>
         <tr>
             <th>Name</th>
-            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -19,8 +18,8 @@
         </c:forEach>
         <form:form method="post" action="/secure/admin/addCountry.html">
             <tr>
-                <td width="60%"><form:input style="width: 98%" path="name" class="input-xlarge"/></td>
-                <td><button style="width: 40%" type="submit" class="btn btn-primary">Save</button>
+                <td width="80%"><form:input style="width: 98%" path="name" class="input-xlarge"/></td>
+                <td><button style="width: 100%" type="submit" class="btn btn-primary">Save</button>
 
 
                 </td>

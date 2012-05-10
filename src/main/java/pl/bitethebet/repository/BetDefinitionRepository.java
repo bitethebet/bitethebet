@@ -24,14 +24,8 @@ public class BetDefinitionRepository extends CrudRepository<BetDefinition> {
 
     @Override
     public void create(BetDefinition entity) {
-        //fetchChildren(entity);
-        PersistenceManager pm = pmfInstance.getPersistenceManager();
-        pm.currentTransaction().begin();
-        entity.setPlayers(Arrays.asList(new Player("janek"),new Player("franek")));
-        //super.create(entity);
-        pm.makePersistent(entity);
-        pm.currentTransaction().commit();
-        pm.close();
+        fetchChildren(entity);
+        super.create(entity);
     }
 
     private void fetchChildren(BetDefinition entity) {

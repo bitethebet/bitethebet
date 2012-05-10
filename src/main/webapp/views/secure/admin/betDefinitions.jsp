@@ -34,7 +34,7 @@
                 <td style="width: 20%">
                     <form:input  path="date" style="width: 100%"></form:input>
                 </td >
-                <td style="width: 40%"><button style="width: 94%; float: right"  type="submit" class="btn btn-primary">Save</button></td>
+                <td style="width: 20%"><button style="width: 94%; float: right"  type="submit" class="btn btn-primary">Save</button></td>
 
             </tr>
         </form:form>
