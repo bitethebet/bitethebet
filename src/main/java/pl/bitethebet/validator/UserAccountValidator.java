@@ -21,8 +21,13 @@ public class UserAccountValidator implements Validator{
     }
 
     @Override
-    public void validate(Object target, Errors errors) {
-        ValidationUtils.rejectIfEmpty(errors, "username", "UserName required");
+    public void validate(Object obj, Errors errors) {
+        ValidationUtils.rejectIfEmpty(errors, "username", "error.username.required");
+        ValidationUtils.rejectIfEmpty(errors, "password", "error.password.required");
+        UserAccount userAccount = (UserAccount) obj;
+        if (!userAccount.getPassword().equals(userAccount.getConfirmPassword())) {
+            errors.rejectValue("confirmPassword", "error.password.matching");
+        }
     }
     
 }

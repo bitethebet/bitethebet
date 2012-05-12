@@ -4,11 +4,15 @@
  */
 package pl.bitethebet.controller;
 
+import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.dao.SaltSource;
 import org.springframework.security.authentication.encoding.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -16,6 +20,7 @@ import org.springframework.web.servlet.ModelAndView;
 import pl.bitethebet.model.AuthorityRole;
 import pl.bitethebet.model.UserAccount;
 import pl.bitethebet.repository.UserAccountRepository;
+import pl.bitethebet.validator.UserAccountValidator;
 
 /**
  *
@@ -31,8 +36,16 @@ public class RegistrationController {
     @Autowired
     private SaltSource saltSource;
 
+    @InitBinder
+    protected void initBinder(WebDataBinder binder) {
+        binder.setValidator(new UserAccountValidator());
+    }
+
     @RequestMapping(value = "/registerUser", method = RequestMethod.POST)
-    public String registerUser(@ModelAttribute("userToRegister") UserAccount user, BindingResult result) {
+    public String registerUser(@Valid @ModelAttribute("userToRegister") UserAccount user, BindingResult result) {
+        if (result.hasErrors()){
+            return "register";
+        }
         user.setAuthorityRole(AuthorityRole.ROLE_USER);
         user.setPassword(passwordEncoder.encodePassword(user.getPassword(), saltSource.getSalt(user)));
         userAccountRepository.create(user);

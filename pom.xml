@@ -139,7 +139,18 @@
             <version>2.2.2</version>
         </dependency>
 		<!-- END SPRING -->
-
+<!--VALIDATION-->
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <version>1.0.0.GA</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator-annotation-processor</artifactId>
+            <version>4.1.0.Final</version>
+        </dependency>
+        <!--END VALIDATION-->
 		<!-- WEB TOOLS -->
         <dependency>
             <groupId>javax.servlet</groupId>

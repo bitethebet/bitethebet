@@ -22,6 +22,7 @@ public class UserAccount implements UserDetails {
     private String password;
     @Persistent
     private AuthorityRole authorityRole;
+    
     private String confirmPassword;
 
     public Long getId() {

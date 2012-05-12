@@ -6,8 +6,7 @@
         <p>
             <c:if test="${!empty param.login_error}">
             <div class="alert alert-error">
-                <button class="close" data-dismiss="alert">×</button>
-                <strong>Warning!</strong> <spring:message code="error.login"/>
+                <spring:message code="error.login"/>
             </div>
         </c:if>
         <form action="j_spring_security_check" method="POST">

@@ -34,9 +34,6 @@
 
 </style>
 
-
-
-
 <div class="span2 hidden-grid"> </div>
 <div class="span5 show-grid" style="margin-right: 5px;">
     a tutaj bety
