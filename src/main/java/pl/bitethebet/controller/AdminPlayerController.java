@@ -19,20 +19,20 @@ import pl.bitethebet.model.Player;
  * @author Toma
  */
 @Controller
-public class AdminCountryController {
+public class AdminPlayerController {
     @Autowired
     PlayerRepository countryRepository;
     
     @RequestMapping(value="/secure/admin/console")
     public ModelAndView showCountries(){
         ModelAndView mav = new ModelAndView("console");
-        mav.addObject("countries", countryRepository.getAll());
+        mav.addObject("players", countryRepository.getAll());
         mav.addObject("command", new Player());
         return mav;
     }
     
-    @RequestMapping(value="/secure/admin/addCountry", method= RequestMethod.POST)
-    public String addCountry(@ModelAttribute("country") Player country, BindingResult result){
+    @RequestMapping(value="/secure/admin/addPlayer", method= RequestMethod.POST)
+    public String addCountry(@ModelAttribute Player country, BindingResult result){
         countryRepository.create(country);
         return "redirect:/secure/admin/console.html";
     }

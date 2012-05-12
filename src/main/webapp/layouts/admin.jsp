@@ -27,7 +27,7 @@
                     <div class="well sidebar-nav">
                         <ul class="nav nav-list">
                             <li class="nav-header">Menu</li>
-                            <li class="<tiles:insertAttribute name="countries_item" />"><a href="/secure/admin/console.html">Countries</a></li>
+                            <li class="<tiles:insertAttribute name="players_item" />"><a href="/secure/admin/console.html">Countries</a></li>
                             <li class="<tiles:insertAttribute name="users_item" />"><a href="/secure/admin/users.html">Users</a></li>
                             <li class="<tiles:insertAttribute name="bets_item" />"><a href="/secure/admin/betDefinitions.html">Bets</a></li>
                         </ul>
