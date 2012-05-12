@@ -89,7 +89,7 @@ public class CrudRepository<T> {
         }
     }
     
-       public T findBySingleParamQuery2(String queryFilter) {
+       public T findSingleResultBySingleParamQuery(String queryFilter) {
         PersistenceManager pm = pmfInstance.getPersistenceManager();
         try {
             List<T> queryEntityResults;

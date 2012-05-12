@@ -17,27 +17,7 @@ import pl.bitethebet.repository.common.CrudRepository;
 public class UserAccountRepository extends CrudRepository<UserAccount> {
 
     public UserAccount findByUsername(String username) {
-        String queryParam = prepareQueryFilter(UserAccountQueryParams.USERNAME, username);
-        List<UserAccount> us = (List<UserAccount>) findBySingleParamQuery(queryParam);
-        return us.get(0);
-    }
-
-    private String prepareQueryFilter(UserAccountQueryParams userAccountQueryParams, String queryValue) {
-        String quatation = "'";
-        return userAccountQueryParams.getValue() + quatation + queryValue + quatation;
-    }
-
-    private enum UserAccountQueryParams {
-
-        USERNAME("username == ");
-        private String value;
-
-        UserAccountQueryParams(String val) {
-            this.value = val;
-        }
-
-        public String getValue() {
-            return value;
-        }
+        UserAccount userAccount = findSingleResultBySingleParamQuery("username == " + "'"+username+"'");
+        return userAccount;
     }
 }

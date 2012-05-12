@@ -15,7 +15,7 @@ import pl.bitethebet.repository.common.CrudRepository;
 @Repository
 public class PlayerRepository extends CrudRepository<Player> {
   public Player findByName(String name){
-        return findBySingleParamQuery2("name == '"+name+"'");        
+        return findSingleResultBySingleParamQuery("name == '"+name+"'");        
     }
      
 }

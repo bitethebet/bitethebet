@@ -8,23 +8,20 @@
         <link href="/bootstrap/css/bootstrap-responsive.css" rel="stylesheet"></link>
         <style type="text/css">
             body {
-                padding-top: 250px;
-                padding-bottom: 10px;
-                margin-left: 200px;
+                padding-top: 150px;
             }
         </style>
     </head>
     <body>
         <tiles:insertAttribute name="header" />
         <div class="container-fluid">
-            <div class="row-fluid">
-                <div class="span6">
-                    <tiles:insertAttribute name="body" />
-                </div>
-                <div class="span3">
-                    <div class="row">
-                        <div class="span3"><tiles:insertAttribute name="authPanel"/></div>
+            <div class="row-fluid" >
+                <div class="span12">
+                    <div class="span2"></div>
+                    <div class="span5">
+                        <tiles:insertAttribute name="body" />
                     </div>
+                    <div class="span3"><tiles:insertAttribute name="authPanel"/></div>
                 </div>
             </div>
         </div>

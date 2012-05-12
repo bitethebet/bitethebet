@@ -30,9 +30,6 @@
                         </sec:authorize>
                     </p>
                 </sec:authorize>
-                <sec:authorize access="isAnonymous()">
-                    <p class="navbar-text pull-right"><a class="btn" href="/register.html">Sign Up</a></p>
-                </sec:authorize>
                 <span style="float: right">
                     <a href="?lang=en">en</a>
                     |

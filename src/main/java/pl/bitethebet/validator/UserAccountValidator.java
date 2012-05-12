@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package pl.bitethebet.controller.pl.bitethebet.validators;
+package pl.bitethebet.validator;
 
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
