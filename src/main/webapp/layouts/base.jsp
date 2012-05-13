@@ -6,6 +6,10 @@
 <title><tiles:insertAttribute name="title" /></title>
 <link href="/bootstrap/css/bootstrap.css" rel="stylesheet"></link>
 <link href="/bootstrap/css/bootstrap-responsive.css" rel="stylesheet"></link>
+<link href="/css/bootstrap_extention.css" rel="stylesheet"></link>
+<link href="/css/roundabout_extension.css" rel="stylesheet"></link>
+
+
 <style type="text/css">
 body {
 	padding-top: 60px;

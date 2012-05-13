@@ -6,32 +6,6 @@
     body {
         padding-top: 150px;
     }
-
-
-    .show-grid  {
-        background-color: #eee;
-        text-align: center;
-        -webkit-border-radius: 3px;
-        -moz-border-radius: 3px;
-        border-radius: 3px;
-        min-height: 30px;
-        line-height: 30px;
-        margin-top: 10px;
-    }
-    
-        .hidden-grid  {
-        background-color: white;
-        text-align: center;
-        -webkit-border-radius: 3px;
-        -moz-border-radius: 3px;
-        border-radius: 3px;
-        min-height: 30px;
-        line-height: 30px;
-        margin-top: 10px;
-    }
-
-
-
 </style>
 
 <div class="span2 hidden-grid"> </div>
