@@ -10,7 +10,6 @@ import org.springframework.security.authentication.dao.SaltSource;
 import org.springframework.security.authentication.encoding.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -46,6 +45,8 @@ public class RegistrationController {
     @RequestMapping(value = "/registerUser", method = RequestMethod.POST)
     public String registerUser(@Valid @ModelAttribute("userToRegister") UserAccount user, BindingResult result) {
         if (result.hasErrors()){
+            user.setConfirmPassword("");
+            user.setPassword(""); 
             return "register";
         }
         user.setAuthorityRole(AuthorityRole.ROLE_USER);

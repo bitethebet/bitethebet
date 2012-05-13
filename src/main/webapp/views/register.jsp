@@ -10,7 +10,7 @@
                 <tr>
                     <td>
                         <spring:message code="auth.login" var="login"/> 
-                        <form:input path="username" type="text" placeholder="${login}" style="margin-bottom:10px" value="${user.username}"/>
+                        <form:input path="username" type="text" placeholder="${login}" style="margin-bottom:10px" value="${userToRegister.username}"/>
                     </td>
                     <td style ="padding-left: 10px;">
                         <c:set var="usernameErrors"><form:errors path="username"/></c:set>
@@ -23,7 +23,7 @@
                 </tr><tr>
                     <td>
                         <spring:message code="auth.password" var="password"/> 
-                        <form:input path="password" type="password" placeholder="${password}" style="margin-bottom:10px"/>
+                        <form:input path="password" type="password" placeholder="${password}" style="margin-bottom:10px" value="${userToRegister.password}"/>
                     </td>
                     <td style ="padding-left: 10px;">
                         <c:set var="passwordErrors"><form:errors path="password"/></c:set>
@@ -36,8 +36,8 @@
                 </tr>
                 <tr>
                     <td>
-                       <spring:message code="auth.confirmPassword" var="confirmPassword"/>  
-                        <form:input path="confirmPassword" type="password" placeholder="${confirmPassword}" style="margin-bottom:10px" />
+                        <spring:message code="auth.confirmPassword" var="confirmPassword"/>  
+                        <form:input path="confirmPassword" type="password" placeholder="${confirmPassword}" style="margin-bottom:10px" value="${userToRegister.confirmPassword}" />
                     </td>
                     <td style ="padding-left: 10px;">
                         <c:set var="confirmPasswordErrors"><form:errors path="confirmPassword"/></c:set>
@@ -50,13 +50,13 @@
                     <tr>
                         <td>
                             <button class="btn btn-primary" type="submit">
-                                <spring:message code="button.createAccount"/>
-                            </button>
-                        </td>
-                        <td>
-                        </td>
-                    </tr>
-                </table>
+                            <spring:message code="button.createAccount"/>
+                        </button>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+            </table>
         </form:form>
     </div>
 </div>
