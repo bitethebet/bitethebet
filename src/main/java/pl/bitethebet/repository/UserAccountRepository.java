@@ -4,7 +4,6 @@
  */
 package pl.bitethebet.repository;
 
-import java.util.List;
 import org.springframework.stereotype.Repository;
 import pl.bitethebet.model.UserAccount;
 import pl.bitethebet.repository.common.CrudRepository;

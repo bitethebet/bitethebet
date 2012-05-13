@@ -4,16 +4,24 @@
  */
 package pl.bitethebet.validator;
 
+import javax.annotation.Resource;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 import pl.bitethebet.model.UserAccount;
+import pl.bitethebet.repository.UserAccountRepository;
 
 /**
  *
  * @author mrowkam
  */
-public class UserAccountValidator implements Validator{
+@Component
+public class UserAccountValidator implements Validator {
+
+    @Autowired
+    UserAccountRepository userAccountRepository;
 
     @Override
     public boolean supports(Class<?> clazz) {
@@ -28,6 +36,12 @@ public class UserAccountValidator implements Validator{
         if (!userAccount.getPassword().equals(userAccount.getConfirmPassword())) {
             errors.rejectValue("confirmPassword", "error.password.matching");
         }
+        if (doesUserExist(userAccount)) {
+            errors.rejectValue("username", "error.userExist");
+        }
     }
-    
+
+    private boolean doesUserExist(UserAccount userAccount) {
+        return userAccountRepository.findByUsername(userAccount.getUsername()) != null || userAccount.getUsername().equals("admin");
+    }
 }

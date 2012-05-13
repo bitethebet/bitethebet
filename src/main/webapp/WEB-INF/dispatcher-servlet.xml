@@ -18,12 +18,15 @@
     <context:component-scan base-package="pl.bitethebet.repository" />
     <context:component-scan base-package="pl.bitethebet.security" />
     <context:component-scan base-package="pl.bitethebet.formatter" />
+    <context:component-scan base-package="pl.bitethebet.validator" />
     <mvc:annotation-driven /> 
     <context:annotation-config/>
     <!--Static views (no controllers) -->
     <mvc:view-controller path="index.html" /> 
      <!--end Static views -->
-  
+     <bean id="validator"
+    class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean"/>
+
 <!-- tiles   -->
     <bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles2.TilesConfigurer">
         <property name="definitions">

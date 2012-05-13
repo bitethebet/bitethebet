@@ -1,5 +1,8 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<script type="text/javascript" src="/bootstrap/js/jquery.js"></script>
+<script type="text/javascript" src="/bootstrap/js/bootstrap.js"></script>
 <div class="navbar navbar-fixed-top">
     <div class="navbar-inner">
         <div class="container-fluid">
@@ -30,11 +33,23 @@
                         </sec:authorize>
                     </p>
                 </sec:authorize>
-                <span style="float: right">
-                    <a href="?lang=en">en</a>
-                    |
-                    <a href="?lang=pl">pl</a>
-                </span>
+
+                <ul class="nav nav-pills navbar-text pull-right">
+                    <li class="dropdown" id="menu1">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#menu1">
+                            Languages
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="?lang=en"><spring:message code="languages.english"/></a></li>
+                            <li><a href="?lang=pl"><spring:message code="languages.polish"/></a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <script type="text/javascript">
+                    $('.dropdown-toggle').dropdown()
+                </script>
+
             </div>
         </div>
     </div>

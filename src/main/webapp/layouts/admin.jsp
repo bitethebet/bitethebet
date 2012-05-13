@@ -15,8 +15,6 @@
                 padding-bottom: 40px;
             }
         </style>
-
-
     </head>
     <body>
         <tiles:insertAttribute name="header" />

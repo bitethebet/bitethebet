@@ -35,10 +35,12 @@ public class RegistrationController {
     private PasswordEncoder passwordEncoder;
     @Autowired
     private SaltSource saltSource;
+    @Autowired
+    private UserAccountValidator userAccountValidator;
 
     @InitBinder
     protected void initBinder(WebDataBinder binder) {
-        binder.setValidator(new UserAccountValidator());
+        binder.setValidator(userAccountValidator);
     }
 
     @RequestMapping(value = "/registerUser", method = RequestMethod.POST)
