@@ -8,6 +8,7 @@
 <link href="/bootstrap/css/bootstrap-responsive.css" rel="stylesheet"></link>
 <link href="/css/bootstrap_extention.css" rel="stylesheet"></link>
 <link href="/css/roundabout_extension.css" rel="stylesheet"></link>
+<link href="/css/bx_styles.css" rel="stylesheet"></link>
 
 
 <style type="text/css">

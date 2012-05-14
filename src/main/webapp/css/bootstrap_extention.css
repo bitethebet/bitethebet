@@ -1,5 +1,6 @@
 .baseblock,
-.show-grid
+.show-grid,
+.bet-block
 {
     background-color: #eee;
     text-align: center;
@@ -15,5 +16,9 @@
 }
 
 .hidden-grid  {
-    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.bet-block{
+    height: 300px;
 }
