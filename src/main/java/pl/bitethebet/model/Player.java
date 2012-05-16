@@ -25,9 +25,7 @@ public class Player {
     
     @Persistent
     private Integer score;
-    
-
-    
+   
     public Player() {
     }
 

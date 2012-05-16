@@ -5,6 +5,7 @@
 package pl.bitethebet.model;
 
 
+import com.google.appengine.api.datastore.Key;
 import java.util.Date;
 import java.util.List;
 import javax.jdo.annotations.IdGeneratorStrategy;
@@ -21,13 +22,16 @@ public class BetDefinition {
     
     @PrimaryKey
     @Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)
-    private Long id;
+    private Key id;
     @Persistent
     private Date date;
     
     @Persistent(defaultFetchGroup="true")
     private List<Player> players;
 
+    public BetDefinition() {
+    }
+    
     public BetDefinition(List<Player> _palyers) {
         players = _palyers;
     }
@@ -37,14 +41,14 @@ public class BetDefinition {
     /**
      * @return the id
      */
-    public Long getId() {
+    public Key getId() {
         return id;
     }
 
     /**
      * @param id the id to set
      */
-    public void setId(Long id) {
+    public void setId(Key id) {
         this.id = id;
     }
 

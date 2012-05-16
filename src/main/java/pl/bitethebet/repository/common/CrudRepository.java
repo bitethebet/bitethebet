@@ -4,11 +4,10 @@
  */
 package pl.bitethebet.repository.common;
 
+import com.google.appengine.api.datastore.Key;
 import java.lang.reflect.ParameterizedType;
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import javax.jdo.Extent;
 import javax.jdo.PersistenceManager;
 import javax.jdo.PersistenceManagerFactory;
 import javax.jdo.Query;
@@ -40,7 +39,7 @@ public class CrudRepository<T> {
             Query query = pm.newQuery(parametrizetType);
             List<T> queryEntityResults = (List<T>) query.execute();
             queryEntityResults.size();
-            return queryEntityResults;
+            return pm.detachCopyAll(queryEntityResults);
         } finally {
             pm.close();
         }
@@ -69,6 +68,15 @@ public class CrudRepository<T> {
         try {
 
             return (T) pm.getObjectById(parametrizetType, id);
+        } finally {
+            pm.close();
+        }
+    }
+    
+    public T getObjectByKey(Key key) {
+        PersistenceManager pm = pmfInstance.getPersistenceManager();
+        try {
+            return (T) pm.getObjectById(parametrizetType, key);
         } finally {
             pm.close();
         }

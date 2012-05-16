@@ -4,8 +4,6 @@
  */
 package pl.bitethebet.repository;
 
-import java.util.Arrays;
-import javax.jdo.PersistenceManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import pl.bitethebet.model.BetDefinition;

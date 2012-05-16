@@ -4,11 +4,8 @@
  */
 package pl.bitethebet.model;
 
-import java.util.List;
-import javax.jdo.annotations.IdGeneratorStrategy;
-import javax.jdo.annotations.PersistenceCapable;
-import javax.jdo.annotations.Persistent;
-import javax.jdo.annotations.PrimaryKey;
+import com.google.appengine.api.datastore.Key;
+import javax.jdo.annotations.*;
 
 /**
  *
@@ -16,14 +13,16 @@ import javax.jdo.annotations.PrimaryKey;
  */
 @PersistenceCapable(detachable = "true")
 public class Bet {
-    
+
     @PrimaryKey
     @Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)
     private Long id;
+    @Persistent(defaultFetchGroup="true")
+    private BetDefinition definition;
     @Persistent
-    private BetDefinition definition; //mozliwe ze trzeba bedzie zmienic klucz w betDefinition na key bo tutaj jest jako child
+    private Key mainDefinitionId;
     @Persistent
-    private Long mainDefinitionId;
+    private Long userId;
 
     /**
      * @return the id
@@ -56,18 +55,22 @@ public class Bet {
     /**
      * @return the mainDefinitionId
      */
-    public Long getMainDefinitionId() {
+    public Key getMainDefinitionId() {
         return mainDefinitionId;
     }
 
     /**
      * @param mainDefinitionId the mainDefinitionId to set
      */
-    public void setMainDefinitionId(Long mainDefinitionId) {
+    public void setMainDefinitionId(Key mainDefinitionId) {
         this.mainDefinitionId = mainDefinitionId;
     }
-    
-    
-    
-    
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
 }

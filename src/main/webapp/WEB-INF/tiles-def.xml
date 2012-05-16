@@ -35,6 +35,9 @@
     <definition name="dashboard" extends="base.definition">
         <put-attribute name="body" value="/views/secure/user/dashboard.jsp" />
     </definition>
+     <definition name="bitebet" extends="base.definition">
+        <put-attribute name="body" value="/views/secure/user/bitebet.jsp" />
+    </definition>
     
     <!-- ADMIN Section-->
     <definition name="console" extends="admin.definition">
