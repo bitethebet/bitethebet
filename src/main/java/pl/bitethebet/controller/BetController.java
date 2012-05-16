@@ -41,7 +41,7 @@ public class BetController {
         List<BetDefinition> bets = (List<BetDefinition>) betDefinitionRepository.getAll();
         BetDefinition mainDefinition = bets.get(0); //TODO: wyciaganie beta ze wzgledu na date
         Bet bet = new Bet();
-        bet.setMainDefinitionId(mainDefinition.getId());
+        bet.setMainDefinitionId(mainDefinition.getKey());
         List<Player> pl = new ArrayList<Player>();
         pl.add(new Player(mainDefinition.getPlayers().get(0).getName()));
         pl.add(new Player(mainDefinition.getPlayers().get(1).getName()));

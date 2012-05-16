@@ -22,15 +22,12 @@ public class BetDefinition {
     
     @PrimaryKey
     @Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)
-    private Key id;
+    private Key key;
     @Persistent
     private Date date;
     
     @Persistent(defaultFetchGroup="true")
     private List<Player> players;
-
-    public BetDefinition() {
-    }
     
     public BetDefinition(List<Player> _palyers) {
         players = _palyers;
@@ -41,15 +38,15 @@ public class BetDefinition {
     /**
      * @return the id
      */
-    public Key getId() {
-        return id;
+    public Key getKey() {
+        return key;
     }
 
     /**
      * @param id the id to set
      */
-    public void setId(Key id) {
-        this.id = id;
+    public void setKey(Key key) {
+        this.key = key;
     }
 
     /**
