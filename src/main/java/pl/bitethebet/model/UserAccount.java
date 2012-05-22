@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import javax.jdo.annotations.*;
+import javax.validation.constraints.NotNull;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -15,6 +16,7 @@ public class UserAccount implements UserDetails {
     private Long id;
     @Persistent
     private String username;
+    @NotNull
     @Persistent
     private String password;
     @Persistent

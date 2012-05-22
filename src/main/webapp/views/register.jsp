@@ -36,7 +36,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <spring:message code="auth.confirmPassword" var="confirmPassword"/>  
+                        <spring:message code="auth.confirmPassword" var="confirmPassword"/>
                         <form:input path="confirmPassword" type="password" placeholder="${confirmPassword}" style="margin-bottom:10px" value="${userToRegister.confirmPassword}" />
                     </td>
                     <td style ="padding-left: 10px;">

@@ -4,7 +4,6 @@
  */
 package pl.bitethebet.model;
 
-
 import com.google.appengine.api.datastore.Key;
 import java.util.Date;
 import java.util.List;
@@ -19,22 +18,21 @@ import javax.jdo.annotations.PrimaryKey;
  */
 @PersistenceCapable(detachable = "true")
 public class BetDefinition {
-    
+
     @PrimaryKey
     @Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)
     private Key key;
     @Persistent
     private Date date;
-    
-    @Persistent(defaultFetchGroup="true")
+    @Persistent
+    private BetCategory betCategory;
+    @Persistent(defaultFetchGroup = "true")
     private List<Player> players;
-    
+
     public BetDefinition(List<Player> _palyers) {
         players = _palyers;
     }
 
-    
-    
     /**
      * @return the id
      */
@@ -75,5 +73,13 @@ public class BetDefinition {
      */
     public void setPlayers(List<Player> players) {
         this.players = players;
+    }
+
+    public BetCategory getBetCategory() {
+        return betCategory;
+    }
+
+    public void setBetCategory(BetCategory betCategory) {
+        this.betCategory = betCategory;
     }
 }
