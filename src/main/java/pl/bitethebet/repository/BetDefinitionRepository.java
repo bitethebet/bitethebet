@@ -21,11 +21,10 @@ public class BetDefinitionRepository extends CrudRepository<BetDefinition> {
     PlayerRepository countryRepository;
 
     @Override
-    public void create(BetDefinition entity) {
-        fetchChildren(entity);
+    public void create(BetDefinition entity) {      
         super.create(entity);
     }
-
+    //TODO use for update
     private void fetchChildren(BetDefinition entity) {
         for (Player player : entity.getPlayers()) {
             Player fetchedPlayer = countryRepository.findByName(player.getName());

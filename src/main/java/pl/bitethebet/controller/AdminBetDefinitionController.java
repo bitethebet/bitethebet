@@ -5,10 +5,7 @@
 package pl.bitethebet.controller;
 
 import com.google.appengine.api.datastore.Key;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.core.convert.ConversionService;
@@ -47,6 +44,9 @@ public class AdminBetDefinitionController {
 
     @RequestMapping(value = "/secure/admin/addBetDefinition")
     public String addBetDefinition(@ModelAttribute BetDefinition betDefinition, BindingResult result) {
+        if (betDefinition.getDate()==null){
+        betDefinition.setDate(new Date());
+        }
         betDefinitionRepository.create(betDefinition);
         return "redirect:/secure/admin/betDefinitions.html";
     }

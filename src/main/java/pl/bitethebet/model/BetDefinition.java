@@ -12,6 +12,7 @@ import javax.jdo.annotations.IdGeneratorStrategy;
 import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Persistent;
 import javax.jdo.annotations.PrimaryKey;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  *
@@ -23,7 +24,8 @@ public class BetDefinition {
     @PrimaryKey
     @Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)
     private Key key;
-    @Persistent
+    @DateTimeFormat
+    @Persistent    
     private Date date;
     
     @Persistent(defaultFetchGroup="true")
