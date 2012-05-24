@@ -16,7 +16,7 @@
             <tr>
                 <td ><c:out value="${definition.players[0].name}"/></td>
                 <td ><c:out value="${definition.players[1].name}"/></td>
-                <td ><c:out value="${definition.betCategory}"/></td>
+                <td ><c:out value="${definition.group}"/></td>
                 <td colspan="2">
                     <spring:eval expression="definition.date" />
                     
@@ -39,11 +39,11 @@
                     </form:select> 
                 </td>
                 <td style="width: 20%">
-                    <form:select path="betCategory" style="width: 100%">
+                    <form:select path="group" style="width: 100%">
                         <form:option value="" label="-- Choose one--" />
-                        <c:forEach items="${categories}" var="category">
-                            <form:option value="${category}" >
-                                <spring:message code="${category.name}"/>
+                        <c:forEach items="${groups}" var="group">
+                            <form:option value="${group}" >
+                                <spring:message code="${group.name}"/>
                             </form:option>
                         </c:forEach>
                     </form:select> 

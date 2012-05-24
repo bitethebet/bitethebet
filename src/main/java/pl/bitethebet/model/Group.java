@@ -8,18 +8,18 @@ package pl.bitethebet.model;
  *
  * @author mrowkam
  */
-public enum BetCategory {
+public enum Group {
 
     A("groupA"), B("groupB"), C("groupC"), D("groupD"),
     QUARTER("quarter"), SEMI("semi"), FINAL("final");
  
     private String name;
 
-    BetCategory(String name) {
+    Group(String name) {
         this.name = name;
     }
 
     public String getName() {
-        return "categories." + name;
+        return "groups." + name;
     }
 }

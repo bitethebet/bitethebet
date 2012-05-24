@@ -1,6 +1,5 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <div class="span6 offset3">
     <div class="hero-unit">
@@ -36,7 +35,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <spring:message code="auth.confirmPassword" var="confirmPassword"/>
+                        <spring:message code="auth.confirmPassword" var="confirmPassword"/>  
                         <form:input path="confirmPassword" type="password" placeholder="${confirmPassword}" style="margin-bottom:10px" value="${userToRegister.confirmPassword}" />
                     </td>
                     <td style ="padding-left: 10px;">

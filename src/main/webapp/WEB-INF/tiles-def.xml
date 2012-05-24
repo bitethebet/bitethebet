@@ -23,7 +23,7 @@
     </definition>
     <!--END LAYOUTS -->
   <!--AUTH SECTION-->
-     <definition name="login" extends="base.definition">
+    <definition name="login" extends="base.definition">
         <put-attribute name="title" value="Bite the bet" />
         <put-attribute name="body" value="/views/login.jsp" />
     </definition>
@@ -35,10 +35,12 @@
     <definition name="dashboard" extends="base.definition">
         <put-attribute name="body" value="/views/secure/user/dashboard.jsp" />
     </definition>
-     <definition name="bitebet" extends="base.definition">
+    <definition name="bitebet" extends="base.definition">
         <put-attribute name="body" value="/views/secure/user/bitebet.jsp" />
     </definition>
-    
+    <definition name="championshipPreview" extends="base.definition">
+        <put-attribute name="body" value="/views/secure/user/championshipPreview.jsp" />
+    </definition>
     <!-- ADMIN Section-->
     <definition name="console" extends="admin.definition">
         <put-attribute name="body" value="/views/secure/admin/players.jsp" />

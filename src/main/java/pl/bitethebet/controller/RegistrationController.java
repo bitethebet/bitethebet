@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import pl.bitethebet.model.AuthorityRole;
+import pl.bitethebet.model.Group;
 import pl.bitethebet.model.UserAccount;
 import pl.bitethebet.repository.UserAccountRepository;
 import pl.bitethebet.validator.UserAccountValidator;
@@ -59,6 +60,7 @@ public class RegistrationController {
     public ModelAndView showRegisterForm(@ModelAttribute("userToRegister") UserAccount user, BindingResult result) {
         ModelAndView mav = new ModelAndView("register");
         mav.addObject("userToRegister", user);
+        mav.addObject("categories", Group.values());
         return mav;
     }
 }

@@ -34,7 +34,7 @@ public class AdminBetDefinitionController {
         mav.addObject("players", countryRepository.getAll());
         mav.addObject("betDefinitions", betDefinitionRepository.getAll());
         mav.addObject("command", new BetDefinition(Arrays.asList(new Player(), new Player())));
-        mav.addObject("categories", BetCategory.values());
+        mav.addObject("groups", Group.values());
         return mav;
     }
 

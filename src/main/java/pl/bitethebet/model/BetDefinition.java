@@ -29,7 +29,7 @@ public class BetDefinition {
     @NotNull
     private Date date;
     @Persistent
-    private BetCategory betCategory;
+    private Group group;
     @Persistent(defaultFetchGroup = "true")
     private List<Player> players;
 
@@ -79,11 +79,11 @@ public class BetDefinition {
         this.players = players;
     }
 
-    public BetCategory getBetCategory() {
-        return betCategory;
+    public Group getGroup() {
+        return group;
     }
 
-    public void setBetCategory(BetCategory betCategory) {
-        this.betCategory = betCategory;
+    public void setGroup(Group group) {
+        this.group = group;
     }
 }
